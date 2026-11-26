@@ -39,8 +39,8 @@
 | 1 | What we built | Read three steps: move, press, watch | What the site lets you do |
 | 2 | Try it | Drag the reader onto a card, press "Ask the card" | The chip only wakes when the reader is close, and the card answers by changing how much power it takes |
 | 3 | A day | Scroll through one day in Istanbul | How many ordinary moments use a contactless tap |
-| 4 | The card | Open the card layer by layer | There is a coil and a chip inside, but no battery |
-| 5 | Power | Slide the card closer, step through Catch, Fill, Wake, Answer | How power reaches the chip through the reader's field |
+| 4 | Power | Slide the card closer, step through Catch, Fill, Wake, Answer | How power reaches the chip through the reader's field |
+| 5 | The card | Open the card layer by layer | There is a coil and a chip inside, but no battery |
 | 6 | The answer | Use the Reader lab: distance, tuning, payment amount | How the reader feels the card's answer, and why the amount changes the bits but not the power |
 | 7 | Recap | Reveal the answer | Where else the same idea is used |
 

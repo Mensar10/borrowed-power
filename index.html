@@ -164,7 +164,7 @@ html{scroll-behavior:auto;scroll-padding-top:65px}body{--volt:#9ce6d1;--copper:#
 #lower .rail{transition:opacity .4s}#caption.out~#lower .rail{opacity:.4}
 .tick:after{content:'';position:absolute;left:0;top:10px;height:2px;width:calc(var(--p,0)*100%);background:#ffdc8c}
 .reveal{opacity:0;transform:translateY(32px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}.reveal.in{opacity:1;transform:none}
-#ic{position:relative}#ic:before{content:'';position:absolute;left:0;right:0;top:-180px;height:180px;background:linear-gradient(#101c2000,#101c20);pointer-events:none;z-index:3}
+#devre{position:relative}#devre:before{content:'';position:absolute;left:0;right:0;top:-180px;height:180px;background:linear-gradient(#101c2000,#101c20);pointer-events:none;z-index:3}
 .partTabs button,#machineTabs button,.btn{transition:background .3s,color .3s,border-color .3s,transform .2s}.btn:active{transform:scale(.97)}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
 
@@ -419,7 +419,7 @@ body{--volt:#79e0c3;--copper:#f4b740;--mute:#b7c8cc;--panel:#163a50;background:v
 @media(prefers-reduced-motion:reduce){.route a i{transition:none}}
 </style>
 </head>
-<body><header id="mast"><a class="brand" href="#ask"><span class="mark">)))</span>Borrowed Power</a><nav class="route" aria-label="Sections"><a href="#built" data-stop="built"><i></i><span>What we built</span></a><a href="#intro" data-stop="intro"><i></i><span>Try it</span></a><a href="#trip" data-stop="trip"><i></i><span>A day</span></a><a href="#ic" data-stop="ic"><i></i><span>The card</span></a><a href="#devre" data-stop="devre"><i></i><span>Power</span></a><a href="#pos" data-stop="pos"><i></i><span>The answer</span></a><a href="#outro" data-stop="outro"><i></i><span>Recap</span></a></nav><button id="full" aria-label="Full screen">⛶</button></header>
+<body><header id="mast"><a class="brand" href="#ask"><span class="mark">)))</span>Borrowed Power</a><nav class="route" aria-label="Sections"><a href="#built" data-stop="built"><i></i><span>What we built</span></a><a href="#intro" data-stop="intro"><i></i><span>Try it</span></a><a href="#trip" data-stop="trip"><i></i><span>A day</span></a><a href="#devre" data-stop="devre"><i></i><span>Power</span></a><a href="#ic" data-stop="ic"><i></i><span>The card</span></a><a href="#pos" data-stop="pos"><i></i><span>The answer</span></a><a href="#outro" data-stop="outro"><i></i><span>Recap</span></a></nav><button id="full" aria-label="Full screen">⛶</button></header>
 <main>
 <section id="ask" aria-label="The question"><img id="introBg" alt="" aria-hidden="true">
  <div class="askIn">
@@ -470,9 +470,27 @@ body{--volt:#79e0c3;--copper:#f4b740;--mute:#b7c8cc;--panel:#163a50;background:v
 <div id="lower"><div class="rail"><b id="clock"></b><span class="line"></span><span id="loc">Taps today<b id="tapN">0</b></span><a class="skipLink skipLab" href="#labTitle">Skip to the lab ↓</a></div><div id="ticks"></div><div class="bottomrow"><span id="hint"></span><div><button id="prev" aria-label="Previous scene">←</button><button id="next" aria-label="Next scene">→</button></div></div></div>
 <div id="dawn"></div>
 </div></section>
-<section class="band" id="ic">
+<section class="band" id="devre">
   <div class="wrap">
     <p class="stop">Stop 4 of 7</p>
+    <h2>Part 1: The reader powers the chip</h2>
+    <p class="lede">The card has no battery. Move it toward the reader coil, then press Step to see what happens inside the card.</p>
+    <p class="try"><b>Try:</b> slide the card closer, then press Step.</p>
+    <div class="circ">
+      <canvas id="spatial" aria-label="Side view: the reader coil below, the card above it, and closed magnetic field loops passing through both coils"></canvas>
+      <div class="ctrl2"><div class="sliderBox"><label for="dist">Move the card closer <output id="distOut" for="dist"></output></label><input type="range" id="dist" min="0" max="10" step="0.1" value="2"><div class="ticks" aria-hidden="true"><span>10 cm</span><span style="left:60%">4 cm</span><span>on the reader</span></div></div><button class="btn solid" id="tapBtn">▶ Play a tap</button></div>
+      <div class="meter"><small>Power reaching the chip <i>(illustrative; 100% = resting on the reader)</i></small><div class="track"><i id="eFill"></i><b id="eMark"></b></div><output id="ePct"></output></div>
+      <div class="stageStrip" id="stageStrip" role="group" aria-label="What happens inside the card"></div>
+      <div class="stageText" id="stageText" aria-live="polite"><b id="stTitle"></b><p id="stSay"></p>
+        <div class="row"><button class="btn solid" id="stStep">Step →</button><button class="btn" id="stPlay">▶ Play all steps</button><button class="btn" id="circToggle" aria-expanded="false" aria-controls="realCircuit">Show the circuit diagram</button></div></div>
+      <div class="diagram" id="realCircuit" hidden><svg id="csvg" viewBox="0 0 1200 640" role="img" aria-label="Reader and card circuits, with the magnetic field between them"></svg></div>
+    </div>
+    <p class="note">Illustrative model. The distances, power levels and wake-up point are simplified, and 100% means the card is resting on the reader. In real life, all four steps happen faster than a blink.</p>
+  </div>
+</section>
+<section class="band" id="ic">
+  <div class="wrap">
+    <p class="stop">Stop 5 of 7</p>
     <h2>The layers of a card.</h2>
     <p class="try"><b>Try:</b> click the card to open it one layer at a time.</p>
     <div id="partTabs" class="partTabs" role="group" aria-label="Card parts"></div><div class="anat">
@@ -493,24 +511,6 @@ body{--volt:#79e0c3;--copper:#f4b740;--mute:#b7c8cc;--panel:#163a50;background:v
         <div class="row"><button class="btn" id="pPrev">Back</button><button class="btn solid" id="pNext">Open the card</button></div>
       </div>
     </div>
-  </div>
-</section>
-<section class="band" id="devre">
-  <div class="wrap">
-    <p class="stop">Stop 5 of 7</p>
-    <h2>Part 1: The reader powers the chip</h2>
-    <p class="lede">The card has no battery. Move it toward the reader coil, then press Step to see what happens inside the card.</p>
-    <p class="try"><b>Try:</b> slide the card closer, then press Step.</p>
-    <div class="circ">
-      <canvas id="spatial" aria-label="Side view: the reader coil below, the card above it, and closed magnetic field loops passing through both coils"></canvas>
-      <div class="ctrl2"><div class="sliderBox"><label for="dist">Move the card closer <output id="distOut" for="dist"></output></label><input type="range" id="dist" min="0" max="10" step="0.1" value="2"><div class="ticks" aria-hidden="true"><span>10 cm</span><span style="left:60%">4 cm</span><span>on the reader</span></div></div><button class="btn solid" id="tapBtn">▶ Play a tap</button></div>
-      <div class="meter"><small>Power reaching the chip <i>(illustrative; 100% = resting on the reader)</i></small><div class="track"><i id="eFill"></i><b id="eMark"></b></div><output id="ePct"></output></div>
-      <div class="stageStrip" id="stageStrip" role="group" aria-label="What happens inside the card"></div>
-      <div class="stageText" id="stageText" aria-live="polite"><b id="stTitle"></b><p id="stSay"></p>
-        <div class="row"><button class="btn solid" id="stStep">Step →</button><button class="btn" id="stPlay">▶ Play all steps</button><button class="btn" id="circToggle" aria-expanded="false" aria-controls="realCircuit">Show the circuit diagram</button></div></div>
-      <div class="diagram" id="realCircuit" hidden><svg id="csvg" viewBox="0 0 1200 640" role="img" aria-label="Reader and card circuits, with the magnetic field between them"></svg></div>
-    </div>
-    <p class="note">Illustrative model. The distances, power levels and wake-up point are simplified, and 100% means the card is resting on the reader. In real life, all four steps happen faster than a blink.</p>
   </div>
 </section>
 <section class="band" id="pos"><div class="wrap">
@@ -970,17 +970,17 @@ function labStep(dt,now){
 
 /* ================= #trip: one morning in Istanbul ================= */
 const images=["img/scene00.webp", "img/scene01.webp", "img/scene02.webp", "img/scene03.webp", "img/scene04.webp", "img/scene05.webp", "img/scene06.webp", "img/scene07.webp", "img/scene08.webp", "img/scene09.webp", "img/scene10.webp", "img/scene11.webp", "img/scene12.webp"];const actors={"2": "img/actor02.webp", "3": "img/actor03.webp", "4": "img/actor04.webp", "6": "img/actor06.webp", "10": "img/actor10.webp", "12": "img/actor12.webp"};const scenes=[
- {photo:0, time:'07:40',kicker:'Istanbul, where Europe meets Asia',title:'One city, <em>countless taps.</em>',sub:'Here, people ride and pay by tapping a card with no battery. Follow one commuter\'s morning.'},
- {photo:1, time:'07:43',kicker:'Eminönü pier, European side',title:'Here the ferry is <em>the bus.</em>',sub:'Crowds cross the Bosphorus strait every morning. Nobody shows a ticket at the gate. They tap.'},
+ {photo:0, time:'07:40',kicker:'Istanbul, where Europe meets Asia',title:'One city, <em>countless taps.</em>',sub:'Many people here ride and pay by tapping a card that has no battery. Follow one commuter\'s day.'},
+ {photo:1, time:'07:43',kicker:'Eminönü pier, European side',title:'Here the ferry is <em>the bus.</em>',sub:'Every morning, crowds cross the Bosphorus, the strait between Europe and Asia. Many pay at the gate with a single tap.'},
  {photo:2, time:'07:44',kicker:'Ferry gates',title:'No ticket. <em>No coins.</em>',sub:'Just an Istanbulkart, the city\'s transit card for ferry, metro, bus and tram.'},
- {photo:3, time:'07:45',kicker:'Tap 1 · Istanbulkart',title:'Beep. <em>Green light.</em>',sub:'No battery, no plug, yet the gate read it in a fraction of a second.',tap:true,push:'65% 53%'},
- {photo:5, time:'07:50',kicker:'Tap 2 · Tea on the ferry',title:'Tea, <em>paid by tap.</em>',sub:'Even for a glass of tea, many people just hold a bank card to the card machine (POS terminal).',tap:true},
- {photo:6, time:'07:50',kicker:'Look closer',title:'A gap of <em>a few centimetres.</em>',sub:'Across this gap, the reader sends the card power and questions. Then it feels the card\'s answer.',push:'62% 48%'},
- {photo:7, time:'08:03',kicker:'Crossing the Bosphorus',title:'Past the <em>Maiden\'s Tower.</em>',sub:'Between two continents, by the small island tower Istanbul calls Kız Kulesi. So far: 2 taps, 2 cards, 0 batteries.'},
- {photo:8, time:'08:08',kicker:'Üsküdar, Asian side',title:'Welcome to <em>Asia.</em>',sub:'A short ride, a new continent. The next tap waits at work.'},
- {photo:10,time:'08:30',kicker:'Tap 3 · Office door',title:'This time, <em>a phone.</em>',sub:'The phone acts like a card: same 13.56 MHz field, same few centimetres. Unlike a card, it uses its own battery.',tap:true},
- {photo:11,time:'12:00',kicker:'The workday',title:'Hours pass. <em>The taps go on.</em>',sub:'Lunch, a snack machine, the metro: the same exchange between a reader and a chip.',clock:[511,1054]},
- {photo:12,time:'17:45',kicker:'Tap 4 · Café in Üsküdar',title:'So how does <em>this work?</em>',sub:'A card with no battery just woke up and answered. The terminal and the bank did the rest. Scroll down to open the card.',tap:true,push:'61% 50%'}
+ {photo:3, time:'07:45',kicker:'Tap 1 · Istanbulkart',title:'Beep. <em>The gate opens.</em>',sub:'The card has no battery and no plug. The gate\'s reader powered it and read it in a moment.',tap:true,push:'65% 53%'},
+ {photo:5, time:'07:50',kicker:'Tap 2 · Ferry tea',title:'Tea, <em>paid by tap.</em>',sub:'Even for a glass of tea, many people just hold a bank card near the card machine (POS terminal).',tap:true},
+ {photo:6, time:'07:50',kicker:'Look closer',title:'A gap of <em>a few centimetres.</em>',sub:'Across this gap, the reader\'s magnetic field gives the card power and a question. The reader then senses the card\'s reply.',push:'62% 48%'},
+ {photo:7, time:'08:03',kicker:'Crossing the Bosphorus',title:'Past the <em>Maiden\'s Tower.</em>',sub:'The ferry passes Kız Kulesi, a tower on a tiny island. So far: two cards tapped, and neither has a battery.'},
+ {photo:8, time:'08:08',kicker:'Üsküdar, Asian side',title:'Welcome to <em>Asia.</em>',sub:'A short ferry ride, and we are on another continent. The next tap waits at work.'},
+ {photo:10,time:'08:30',kicker:'Tap 3 · Office door',title:'This time, <em>a phone.</em>',sub:'Here the phone acts like a card in the same reader field. Unlike a card, it uses its own battery.',tap:true},
+ {photo:11,time:'12:00',kicker:'The workday',title:'Hours pass. <em>The taps go on.</em>',sub:'Lunch, the snack machine: each tap is the same quick exchange between a reader and a chip.',clock:[511,1054]},
+ {photo:12,time:'17:45',kicker:'Tap 4 · Café in Üsküdar',title:'So how does <em>this work?</em>',sub:'The card has no battery, yet it answered. The terminal and the bank approved the payment. So where did its power come from?',tap:true,push:'61% 50%'}
 ];
 const alternateAngles={"2": "img/cutaway02.webp", "7": "img/cutaway07.webp", "12": "img/cutaway12.webp"};
 // Scene 3 photo: the student will replace images[3] with a new photo that already shows the hand.
@@ -995,7 +995,7 @@ const shots=scenes.map(s=>{
  photos.append(box);return box});
 const marks=scenes.map((s,i)=>{const b=document.createElement('button');b.className='tick';b.setAttribute('aria-label','Go to: '+s.kicker);b.onclick=()=>jump(i);$('#ticks').append(b);return b});
 function unit(){return (area.offsetHeight-screenBox.offsetHeight)/(scenes.length-.01)}
-function jump(n){if(n>=scenes.length){$('#ic').scrollIntoView();return}window.scrollTo({top:area.offsetTop+Math.max(0,n)*unit()+(n>0?1:0),behavior:reduce?'instant':'smooth'})}
+function jump(n){if(n>=scenes.length){$('#devre').scrollIntoView();return}window.scrollTo({top:area.offsetTop+Math.max(0,n)*unit()+(n>0?1:0),behavior:reduce?'instant':'smooth'})}
 // Camera: ONE calm motion for every scene. A slow sideways dolly (always the same direction, west → east)
 // and a gentle push-in that never zooms back out. Tap moments ("push") lean in a bit more, then hold.
 function camera(box,s,u){            // u = how far this shot is through its time on screen (starts at -0.2 while fading in)
@@ -1018,7 +1018,7 @@ function manage(i){for(let n=0;n<shots.length;n++){if(n>=i-1&&n<=i+2)ensure(n);e
 const capBox=$('#caption');let shownCap=-1,capTimer=0,tapShown=-1;
 function setCaption(n){if(n===shownCap)return;const first=shownCap<0;shownCap=n;
  const apply=()=>{const s=scenes[n];$('#byline').textContent=s.kicker;$('#title').innerHTML=s.title;$('#sub').textContent=s.sub;$('#clock').textContent=s.time;
-  $('#hint').textContent=n===0?'↓  Scroll to follow the morning':n===scenes.length-1?'↓  Scroll on to open the card':'↕  Scroll, or use the arrows';capBox.classList.remove('out')};
+  $('#hint').textContent=n===0?'↓  Scroll to follow the morning':n===scenes.length-1?'↓  Scroll on to Part 1: the power':'↕  Scroll, or use the arrows';capBox.classList.remove('out')};
  clearTimeout(capTimer);if(first||reduce){apply();return}capBox.classList.add('out');capTimer=setTimeout(apply,260)}
 function tapsUpTo(n){return scenes.filter((s,j)=>s.tap&&j<=n).length}   // taps so far, counted with the caption on screen
 function render(progress){const i=Math.floor(progress),t=progress-i,last=i>=scenes.length-1;
