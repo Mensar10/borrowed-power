@@ -327,21 +327,132 @@ html{scroll-behavior:auto;scroll-padding-top:65px}body{--volt:#9ce6d1;--copper:#
 .sources ul{margin:6px 0 0;padding-left:18px}
 .team{margin-top:20px;font-size:15px}
 @media(max-width:860px){.tapList{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ================= v3: one clear route for a first-time visitor =================
+   Bosphorus navy base. Gold always means POWER, mint always means SIGNAL / ANSWER.
+   Ferry white is for actions. Red-tulip only for "asleep / not enough". */
+:root{--sea:#0f2a3b;--sea2:#133449;--deep:#0b2232;--white:#eef3f1;--gold:#f4b740;--mint:#79e0c3;--tulip:#ef6b5b}
+body{--volt:#79e0c3;--copper:#f4b740;--mute:#b7c8cc;--panel:#163a50;background:var(--sea);font:18px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--white)}
+.band,.band:nth-of-type(3){background:var(--sea)}
+#built,#devre,#outro{background:var(--sea2)}
+.band{padding:clamp(80px,10vw,130px) max(5vw,18px)}
+.wrap{max-width:1180px}
+.band h2,.tryH{font:normal clamp(36px,5vw,64px)/1.05 Georgia,"Times New Roman",serif;letter-spacing:-.02em;margin:6px 0 18px;max-width:22ch}
+.lede{font-size:clamp(18px,1.5vw,21px);color:#d6e2e2;max-width:58ch}
+.pdesc,.labSide p,#stSay,.why{font-size:18px}
+.eye{text-transform:none;letter-spacing:0;font:600 15px/1.4 system-ui,sans-serif;color:var(--gold)}
+.stop{font-size:15px;color:#9fb7bd;margin:0 0 4px;font-variant-numeric:tabular-nums}
+.try{display:inline-flex;align-items:baseline;gap:8px;margin:22px 0 12px;padding:9px 16px;border-radius:12px;background:#ffffff12;font-size:18px;color:var(--white)}
+.try b{color:var(--mint)}
+.btn{font-size:17px;min-height:48px}
+.btn.solid{background:var(--white);border-color:var(--white);color:#0f2a3b;font-weight:600}
+.btn.big{font-size:20px;min-height:56px;padding:0 30px}
+.panel,.circ,.labMain,.machineStage,.stageText{background:#0f2e42;border-color:#25506a}
+.track>i,#takeFill,#powerFill,#eFill{background:var(--gold)!important}
+/* masthead + ferry route */
+#mast{padding:12px clamp(16px,4vw,56px);gap:24px;background:linear-gradient(#0b2232cc,transparent)}
+#mast.solid{background:#0b2232f2;box-shadow:0 1px 0 #ffffff14}
+.brand{font:normal 22px Georgia,serif;letter-spacing:-.01em;white-space:nowrap}
+.mark{font-size:15px}
+.route{--at:0;margin-left:auto;display:flex;align-items:flex-start;position:relative;gap:0}
+.route:before{content:'';position:absolute;left:12px;right:12px;top:9px;height:2px;background:#ffffff30}
+.route a{position:relative;display:flex;flex-direction:column;align-items:center;gap:5px;color:#c6d4d6;text-decoration:none;font-size:13px;width:84px;text-align:center;line-height:1.2}
+.route a i{width:12px;height:12px;margin-top:4px;border-radius:50%;background:var(--sea);border:2px solid #ffffff80;z-index:1;transition:background .3s,border-color .3s,transform .3s}
+.route a.done i{background:var(--white);border-color:var(--white)}
+.route a[aria-current] i{background:var(--gold);border-color:var(--gold);transform:scale(1.5)}
+.route a[aria-current]{color:#fff;font-weight:600}
+.route a:hover span{text-decoration:underline}
+@media(max-width:560px){.route a[aria-current] span{display:none!important}}@media(max-width:900px){.route a{width:auto;flex:1;min-width:26px}.route a span{display:none}.route a[aria-current] span{display:block;position:absolute;top:22px;white-space:nowrap;font-size:12px}.route{flex:1;max-width:330px}#mast #full{display:none}}
+@media(max-width:430px){.brand{font-size:17px}.mark{display:none}#mast{gap:12px}}
+/* 0. the question */
+#ask{position:relative;min-height:100svh;display:grid;align-items:end;overflow:hidden;background:var(--deep)}
+#ask #introBg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.42) saturate(.85);transform:none}
+#ask:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,#0b2232f0 92%)}
+.askIn{position:relative;z-index:1;padding:0 clamp(20px,6vw,96px) clamp(60px,12vh,120px);max-width:1100px}
+#askQ{font:normal clamp(44px,7.4vw,104px)/1 Georgia,"Times New Roman",serif;letter-spacing:-.03em;margin:0 0 22px;max-width:15ch;text-wrap:balance}
+#askSub{font-size:clamp(18px,1.6vw,22px);color:#dbe6e6;max-width:48ch;margin-bottom:30px}
+/* 1. what we built */
+.how{list-style:none;padding:0;margin:36px 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;counter-reset:h}
+.how li{counter-increment:h;background:#0f2e42;border-radius:18px;padding:22px;display:grid;gap:4px}
+.how svg{width:64px;height:64px;margin-bottom:6px}
+.how .iw{fill:none;stroke:var(--white);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.how .ig{fill:none;stroke:var(--gold);stroke-width:2.4}
+.how .im{fill:none;stroke:var(--mint);stroke-width:2.6;stroke-linecap:round}
+.how b{font:normal 28px Georgia,serif}
+.how b:before{content:counter(h) '. ';color:#9fb7bd}
+.how span{color:#d6e2e2}
+.idea{border-left:4px solid var(--gold);padding:6px 0 6px 22px;margin:8px 0 26px}
+.ideaLbl{font-size:15px;color:#9fb7bd}
+.ideaTxt{font:normal clamp(24px,2.8vw,36px)/1.25 Georgia,serif;max-width:32ch}
+.teamLine{color:#b7c8cc;margin-bottom:26px}
+@media(max-width:760px){.how{grid-template-columns:1fr;gap:10px}.how li{grid-template-columns:56px 1fr;align-items:center;column-gap:14px;padding:14px 16px}.how svg{grid-row:1/span 2;width:52px;height:52px;margin:0}}
+/* 2. try it (the interactive intro) */
+#intro{background:var(--deep);min-height:auto}
+#intro:after{display:none}
+.introIn{padding:clamp(80px,10vw,120px) clamp(20px,5vw,84px) 70px;align-items:start}
+.introCopy p.introLede{font-size:19px}
+.introSteps{font-size:19px;gap:10px}
+.introStage{background:#0f2e42;border-radius:20px}
+.answerBox{background:#0f2e42;border-color:#25506a}
+.introHow{font-size:15px!important}
+#introStat{font-size:16px}
+#askCard{font-size:16px;min-height:44px}
+#askCard:disabled{color:var(--tulip);border-color:var(--tulip)}
+@media(max-width:760px){
+ .introIn{display:flex;flex-direction:column;padding:84px 16px 40px;gap:6px}
+ .introCopy,.introRight{display:contents}
+ .introCopy .stop{order:0}.tryH{order:1;font-size:34px;margin:0 0 4px}.introSteps{order:2;font-size:16px;gap:4px;margin:4px 0}
+ .introRight .try{order:3;margin:6px 0;font-size:16px;padding:7px 12px}
+ .introLede,.introCopy .introHow{display:none}.introStage{order:4}.introStage svg{max-height:210px}.answerBox{order:5}
+ #introStat{order:6;font-size:13px}.introBtns{order:7}.introBtns .btn{font-size:15px;min-height:44px}
+}
+/* 3. the day: calmer caption */
+#title{font-family:Georgia,serif}
+/* 6. lab: bigger reading text */
+.labSide h4{text-transform:none;letter-spacing:0;font-size:15px;color:var(--gold)}
+.labSide .term{font-size:15px}
+#readerState{font-size:19px}
+/* recap */
+.quiz h3{font-size:clamp(24px,2.6vw,34px)}
+.timeline b{color:var(--gold)}
+@media(max-width:650px){.band{padding:72px 18px}.try{font-size:16px;padding:8px 12px}}
+@media(prefers-reduced-motion:reduce){.route a i{transition:none}}
 </style>
 </head>
-<body><header id="mast"><a class="brand" href="#intro"><span class="mark">)))</span>Borrowed Power<span class="brandSub">· the card with no battery</span></a><div class="links"><a href="#trip">A day</a><a href="#ic">The card</a><a href="#devre">Power</a><a href="#pos">Reader</a><a href="#outro">Recap</a></div><button id="full" aria-label="Full screen">⛶</button></header>
+<body><header id="mast"><a class="brand" href="#ask"><span class="mark">)))</span>Borrowed Power</a><nav class="route" aria-label="Sections"><a href="#built" data-stop="built"><i></i><span>What we built</span></a><a href="#intro" data-stop="intro"><i></i><span>Try it</span></a><a href="#trip" data-stop="trip"><i></i><span>A day</span></a><a href="#ic" data-stop="ic"><i></i><span>The card</span></a><a href="#devre" data-stop="devre"><i></i><span>Power</span></a><a href="#pos" data-stop="pos"><i></i><span>The answer</span></a><a href="#outro" data-stop="outro"><i></i><span>Recap</span></a></nav><button id="full" aria-label="Full screen">⛶</button></header>
 <main>
-<section id="intro" aria-label="Introduction"><img id="introBg" alt="" aria-hidden="true">
+<section id="ask" aria-label="The question"><img id="introBg" alt="" aria-hidden="true">
+ <div class="askIn">
+  <h1 id="askQ">How can a card with no battery pay for your tea?</h1>
+  <p id="askSub">In Istanbul, people tap cards like this all day. None of them has a battery inside.</p>
+  <a class="btn solid big" href="#built">Find out</a>
+ </div>
+</section>
+<section class="band" id="built" aria-labelledby="builtH"><div class="wrap">
+ <p class="stop">Stop 1 of 7</p>
+ <h2 id="builtH">What we built</h2>
+ <p class="lede" id="builtLede">A website where you can play with the invisible part of a contactless card: the magnetic field between the card and the reader. Everything you see on the page is computed live from what you do.</p>
+ <ol class="how">
+  <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="22" y="14" width="20" height="14" rx="3" class="ig"/><path d="M6 21h10m-4-4 4 4-4 4" class="iw"/><path d="M27 21h10" class="ig"/></svg><b>Move</b><span>Drag the reader toward the card.</span></li>
+  <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="16" width="32" height="16" rx="8" class="iw"/><path d="M24 40v-6m-6 4 6-4 6 4" class="iw"/></svg><b>Press</b><span>Ask the card a question.</span></li>
+  <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M4 24q4-12 8 0t8 0 8 0" class="im"/><path d="M28 24q4-5 8 0t8 0" class="im" opacity=".6"/></svg><b>Watch</b><span>See the reader's signal dip as the card answers.</span></li>
+ </ol>
+ <div class="idea"><p class="ideaLbl">The one idea</p><p class="ideaTxt" id="ideaTxt">The reader gives the card its power. The card answers by taking a little more power, then a little less.</p></div>
+ <p class="teamLine">Made by team İstikbalin Cezerileri, Istanbul, for the Global Virtual Hackathon 2026.</p>
+ <a class="btn solid big" href="#intro">Try it</a>
+</div></section>
+<section id="intro" aria-label="Try it">
  <div class="introIn">
   <div class="introCopy">
-   <small class="eye">Unveiling Technology · Global Virtual Hackathon 2026</small>
-   <h1>This card has <em>no battery.</em></h1>
+   <p class="stop">Stop 2 of 7</p>
+   <h2 class="tryH">This card has no battery.</h2>
    <p class="introLede">Yet in Istanbul, cards like this get people through ferry gates, pay for tea and open office doors every day. So where does the power come from?</p>
    <ol class="introSteps" id="introSteps"><li>Move the reader to the card.</li><li>Watch the chip wake up.</li><li>Press 'Ask the card' and watch the reader's signal dip with each 1.</li></ol>
    <p class="introHow">Your pointer is the reader. On a phone, drag with your finger. With a keyboard, select the picture and use the arrow keys.</p>
    <div class="introBtns"><a class="btn solid" href="#trip" id="startDay">Start the day in Istanbul ↓</a><a class="btn skipLab" href="#labTitle" id="skipIntro">Skip the story, go to the lab →</a></div>
   </div>
   <div class="introRight">
+   <p class="try"><b>Try:</b> drag the reader onto the card.</p>
    <div class="introStage" id="introStage" tabindex="0" role="application" aria-label="Interactive card and reader. Arrow keys move the reader."><svg id="introSvg" viewBox="0 0 600 460" aria-hidden="true"></svg></div>
    <div class="answerBox">
     <svg viewBox="0 0 520 74" role="img" aria-label="The reader coil signal, computed live; it dips when the card answers"><rect width="520" height="74" rx="6" fill="#09191d"/><path d="M0 37H520" stroke="#2c4546" stroke-dasharray="3 5"/><text x="10" y="13" fill="#9ce6d1" font-family="Archivo, Arial, sans-serif" font-size="12">Reader coil signal (slowed down)</text><path id="introWave" fill="none" stroke="#a5e8d1" stroke-width="2" stroke-linejoin="round"/><line id="introHead" y1="16" y2="74" stroke="#f7ca83" stroke-width="1.5" opacity="0"/></svg>
@@ -361,9 +472,9 @@ html{scroll-behavior:auto;scroll-padding-top:65px}body{--volt:#9ce6d1;--copper:#
 </div></section>
 <section class="band" id="ic">
   <div class="wrap">
-    <span class="eye">Inside the card</span>
+    <p class="stop">Stop 4 of 7</p>
     <h2>The layers of a card.</h2>
-    <p class="lede">Click the card to open it one layer at a time, or pick a part.</p>
+    <p class="try"><b>Try:</b> click the card to open it one layer at a time.</p>
     <div id="partTabs" class="partTabs" role="group" aria-label="Card parts"></div><div class="anat">
       <div class="scene3" id="scene3" tabindex="0" role="button" aria-label="Open the card one step">
         <span id="partTag"></span><div class="stack" id="stack">
@@ -386,9 +497,10 @@ html{scroll-behavior:auto;scroll-padding-top:65px}body{--volt:#9ce6d1;--copper:#
 </section>
 <section class="band" id="devre">
   <div class="wrap">
-    <span class="eye">Where the power comes from</span>
+    <p class="stop">Stop 5 of 7</p>
     <h2>Part 1: The reader powers the chip</h2>
     <p class="lede">The card has no battery. Move it toward the reader coil, then press Step to see what happens inside the card.</p>
+    <p class="try"><b>Try:</b> slide the card closer, then press Step.</p>
     <div class="circ">
       <canvas id="spatial" aria-label="Side view: the reader coil below, the card above it, and closed magnetic field loops passing through both coils"></canvas>
       <div class="ctrl2"><div class="sliderBox"><label for="dist">Move the card closer <output id="distOut" for="dist"></output></label><input type="range" id="dist" min="0" max="10" step="0.1" value="2"><div class="ticks" aria-hidden="true"><span>10 cm</span><span style="left:60%">4 cm</span><span>on the reader</span></div></div><button class="btn solid" id="tapBtn">▶ Play a tap</button></div>
@@ -402,14 +514,16 @@ html{scroll-behavior:auto;scroll-padding-top:65px}body{--volt:#9ce6d1;--copper:#
   </div>
 </section>
 <section class="band" id="pos"><div class="wrap">
-<span class="eye">Inside the reader</span><h2>How does the reader work?</h2>
+<p class="stop">Stop 6 of 7</p><h2>How does the reader hear the answer?</h2>
 <p class="lede">Take the card machine (POS terminal) apart, then probe its circuit in the Reader lab.</p>
+<p class="try"><b>Try:</b> press "Take it apart" to see what is inside a card machine.</p>
 <div class="machineLayout">
  <div class="machineStage"><svg id="terminal3d" viewBox="0 0 600 460" role="group" aria-label="POS terminal model that rotates and comes apart"></svg>
  <div class="machineBar"><button id="unpack" type="button" aria-expanded="false">Take it apart</button><div><button id="turnLeft" type="button" aria-label="Rotate left">↶</button><button id="turnRight" type="button" aria-label="Rotate right">↷</button></div></div></div>
  <div class="panel"><small class="eye" id="modelOrder">Assembled</small><h3 id="modelTitle">Handheld POS terminal</h3><p class="pdesc" id="modelText"></p><div id="machineTabs" aria-label="POS parts"></div><div class="row"><button class="btn" id="partBack">Back</button><button class="btn solid" id="partAdvance">Open the device</button></div></div>
 </div>
 <h3 class="circuitTitle" id="labTitle">Part 2: The card answers by changing how much power it takes</h3><p class="lede">Switch the reader on, move the card, and click any block to probe its signal. The screen under the diagram (an oscilloscope) shows the signal at that block.</p>
+<p class="try"><b>Try:</b> click a block, then move the card and watch the screen under the diagram.</p>
 <div class="lab2">
  <div class="labMain" id="labMain">
   <div class="labBar">
@@ -445,7 +559,7 @@ html{scroll-behavior:auto;scroll-padding-top:65px}body{--volt:#9ce6d1;--copper:#
 <p class="benchNote">Illustrative model: signal heights are relative and everything is slowed down. The real carrier runs at 13.56 million cycles per second.</p>
 </div></section>
 <section class="band" id="outro"><div class="wrap">
- <span class="eye">Recap</span>
+ <p class="stop">Stop 7 of 7</p>
  <h2>A day of taps.</h2>
  <p class="lede">From the ferry to the café, the same thing happens again and again: the reader powers the chip, and the card answers.</p>
  <ol class="timeline">
@@ -462,6 +576,7 @@ html{scroll-behavior:auto;scroll-padding-top:65px}body{--volt:#9ce6d1;--copper:#
  <p class="closingSub">Next time you tap, the reader brings the power and the card just answers.</p>
  <div class="quiz panel"><small class="eye">The question we started with</small>
   <h3>Where does the chip get its power, and how does the card answer without a transmitter?</h3>
+  <p class="try"><b>Try:</b> answer it in your head first, then check.</p>
   <button class="btn solid" id="reveal" type="button" aria-expanded="false" aria-controls="answer">Reveal the answer</button>
   <p id="answer" hidden>The reader's changing magnetic field induces a current in the card's coil, and this powers the chip. The card answers by switching a load on and off, so it takes a little more power, then a little less. The reader feels these dips.</p>
  </div>
@@ -931,12 +1046,11 @@ function tripStep(dt){
  const target=goal(),k=reduce?1:1-Math.exp(-dt*4),d=target-cur;   // smoothing 4: heavier, more cinematic
  if(forced||Math.abs(d)>.0003){cur+=d*k;if(Math.abs(target-cur)<.0003)cur=target;forced=false;if(onScreen(screenBox))render(cur)}
  $('#dawn').style.opacity=clamp(area.getBoundingClientRect().top/innerHeight).toFixed(3);     // fade in from the dark intro
- $('#mast').classList.toggle('solid',scrollY>area.offsetTop+area.offsetHeight-screenBox.offsetHeight*.4);
 }
 render(cur);
 
 /* ================= intro: your pointer is the reader ================= */
-const intro=$('#intro'),introIn=$('.introIn'),iStage=$('#introStage'),iSvg=$('#introSvg');
+const intro=$('#intro'),iStage=$('#introStage'),iSvg=$('#introSvg');
 $('#introBg').src=blobURL('b0',images[0]);
 const CARD={x:250,y:150,w:321,h:202};                // where the card sits in the picture (SVG units)
 const reader={x:110,y:100,tx:110,ty:100};let lastInput=-1e9,demoT0=0,statShown='';
@@ -951,8 +1065,6 @@ iStage.addEventListener('pointermove',e=>{if(e.pointerType==='mouse'||e.buttons)
 iStage.addEventListener('pointerdown',e=>{const q=svgPoint(e);aimAt(q.x,q.y)});
 iStage.addEventListener('keydown',e=>{const m={ArrowLeft:[-24,0],ArrowRight:[24,0],ArrowUp:[0,-24],ArrowDown:[0,24]}[e.key];if(!m)return;e.preventDefault();aimAt(reader.tx+m[0],reader.ty+m[1])});
 function introStep(dt,now){
- const fadeOut=clamp(scrollY/(innerHeight*.75));
- introIn.style.opacity=(1-fadeOut).toFixed(3);introIn.style.transform=reduce?'none':`translateY(${(-scrollY*.25).toFixed(1)}px)`;
  if(!onScreen(intro))return;
  if(!reduce&&now-lastInput>3500){                     // nobody is playing: show a short demo
   if(!demoT0)demoT0=now;const s=((now-demoT0)/1000)%9.5;
@@ -1003,6 +1115,18 @@ function answerStep(dt,now,d,p,awake){
  $('#takeFill').style.width=pct(p*(.6+.4*bitNow));
  $('#iCoil').setAttribute('stroke',bitNow?'#ffe7b0':'#ffb35c');    // the card's coil brightens while it takes more
 }
+
+/* ================= the ferry route at the top: which stop are we at? ================= */
+const stops=[...document.querySelectorAll('.route a')],stopSecs=stops.map(a=>document.getElementById(a.dataset.stop));
+function updateRoute(){
+ const mid=innerHeight*.4;let at=-1;
+ stopSecs.forEach((sec,i)=>{if(sec.getBoundingClientRect().top<mid)at=i});
+ stops.forEach((a,i)=>{a.classList.toggle('done',i<at);if(i===at)a.setAttribute('aria-current','step');else a.removeAttribute('aria-current')});
+ $('.route').style.setProperty('--at',Math.max(0,at));
+ const overPhoto=onScreen($('#ask'))&&$('#ask').getBoundingClientRect().bottom>60||(area.getBoundingClientRect().top<=0&&area.getBoundingClientRect().bottom>innerHeight);
+ $('#mast').classList.toggle('solid',!overPhoto);
+}
+addEventListener('scroll',updateRoute,{passive:true});addEventListener('resize',updateRoute);updateRoute();
 
 /* ================= outro ================= */
 $('#reveal').onclick=()=>{const a=$('#answer'),open=a.hidden;a.hidden=!open;$('#reveal').setAttribute('aria-expanded',String(open));$('#reveal').textContent=open?'Hide the answer':'Reveal the answer'};
