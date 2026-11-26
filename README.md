@@ -48,9 +48,9 @@ No install, no build step. Visit the live site, or serve the folder (for example
 
 ## Use of AI tools
 
-[[Which tools we used, for what (code drafts, images, wording), and what we checked or rewrote ourselves.]]
+We used **Claude** (Anthropic) to help build the prototype (the website code) and the presentation materials (texts and the demo video), and **ChatGPT** (OpenAI) to generate the photos used in the site. We chose the topic, the explanations and the design decisions, checked the physics, and can explain every part of the code.
 
-**Images:** [[AI-generated / taken by the team — list per image]].
+**Images:** all photos in `img/` were generated with ChatGPT; they contain no real logos or brand text.
 
 ## Team
 
