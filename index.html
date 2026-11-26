@@ -329,25 +329,25 @@ html{scroll-behavior:auto;scroll-padding-top:65px}body{--volt:#9ce6d1;--copper:#
 @media(max-width:860px){.tapList{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 </head>
-<body><header id="mast"><a class="brand" href="#intro"><span class="mark">)))</span>Borrowed Power<span class="brandSub">· the card with no battery</span></a><div class="links"><a href="#trip">Journey</a><a href="#ic">The card</a><a href="#devre">Power</a><a href="#pos">Reader</a><a href="#outro">Recap</a></div><button id="full" aria-label="Full screen">⛶</button></header>
+<body><header id="mast"><a class="brand" href="#intro"><span class="mark">)))</span>Borrowed Power<span class="brandSub">· the card with no battery</span></a><div class="links"><a href="#trip">A day</a><a href="#ic">The card</a><a href="#devre">Power</a><a href="#pos">Reader</a><a href="#outro">Recap</a></div><button id="full" aria-label="Full screen">⛶</button></header>
 <main>
 <section id="intro" aria-label="Introduction"><img id="introBg" alt="" aria-hidden="true">
  <div class="introIn">
   <div class="introCopy">
    <small class="eye">Unveiling Technology · Global Virtual Hackathon 2026</small>
    <h1>This card has <em>no battery.</em></h1>
-   <p class="introLede">Yet it opens ferry gates, pays for tea and unlocks doors for millions of people in Istanbul every day. So where does its power come from?</p>
+   <p class="introLede">Yet in Istanbul, cards like this get people through ferry gates, pay for tea and open office doors every day. So where does the power come from?</p>
    <ol class="introSteps" id="introSteps"><li>Move the reader to the card.</li><li>Watch the chip wake up.</li><li>Press 'Ask the card' and watch the reader's signal dip with each 1.</li></ol>
-   <p class="introHow">Your pointer is the reader. On a phone, tap or drag; with a keyboard, focus the picture and use the arrow keys.</p>
-   <div class="introBtns"><a class="btn solid" href="#trip" id="startDay">Start the day in Istanbul ↓</a><a class="btn skipLab" href="#labTitle" id="skipIntro">Skip the story: try the lab →</a></div>
+   <p class="introHow">Your pointer is the reader. On a phone, drag with your finger. With a keyboard, select the picture and use the arrow keys.</p>
+   <div class="introBtns"><a class="btn solid" href="#trip" id="startDay">Start the day in Istanbul ↓</a><a class="btn skipLab" href="#labTitle" id="skipIntro">Skip the story, go to the lab →</a></div>
   </div>
   <div class="introRight">
    <div class="introStage" id="introStage" tabindex="0" role="application" aria-label="Interactive card and reader. Arrow keys move the reader."><svg id="introSvg" viewBox="0 0 600 460" aria-hidden="true"></svg></div>
    <div class="answerBox">
     <svg viewBox="0 0 520 74" role="img" aria-label="The reader coil signal, computed live; it dips when the card answers"><rect width="520" height="74" rx="6" fill="#09191d"/><path d="M0 37H520" stroke="#2c4546" stroke-dasharray="3 5"/><text x="10" y="13" fill="#9ce6d1" font-family="Archivo, Arial, sans-serif" font-size="12">Reader coil signal (slowed down)</text><path id="introWave" fill="none" stroke="#a5e8d1" stroke-width="2" stroke-linejoin="round"/><line id="introHead" y1="16" y2="74" stroke="#f7ca83" stroke-width="1.5" opacity="0"/></svg>
-    <div class="ansRow"><button class="btn solid" type="button" id="askCard" disabled>Move closer: the chip is asleep</button><span id="ansText" aria-live="polite"></span></div>
+    <div class="ansRow"><button class="btn solid" type="button" id="askCard" disabled>Chip asleep. Move the reader closer</button><span id="ansText" aria-live="polite"></span></div>
     <div class="takeMeter"><span>Power the card takes <i>(illustrative)</i></span><div class="track"><i id="takeFill"></i></div></div>
-    <p id="takeaway" hidden>The card has no transmitter of its own. It answers by taking a little more, then a little less, of the reader's power, and the reader feels those dips.</p>
+    <p id="takeaway" hidden>The card has no transmitter of its own. It answers by taking a little more of the reader's power, then a little less. The reader feels these dips.</p>
    </div>
    <p id="introStat" aria-live="polite"></p>
   </div>
@@ -386,19 +386,19 @@ html{scroll-behavior:auto;scroll-padding-top:65px}body{--volt:#9ce6d1;--copper:#
 </section>
 <section class="band" id="devre">
   <div class="wrap">
-    <span class="eye">Where the energy comes from</span>
+    <span class="eye">Where the power comes from</span>
     <h2>Part 1: The reader powers the chip</h2>
-    <p class="lede">The card has no battery. Move it toward the reader's coil, then step through what happens inside it.</p>
+    <p class="lede">The card has no battery. Move it toward the reader coil, then press Step to see what happens inside the card.</p>
     <div class="circ">
       <canvas id="spatial" aria-label="Side view: the reader coil below, the card above it, and closed magnetic field loops passing through both coils"></canvas>
-      <div class="ctrl2"><div class="sliderBox"><label for="dist">Move the card closer <output id="distOut" for="dist"></output></label><input type="range" id="dist" min="0" max="10" step="0.1" value="2"><div class="ticks" aria-hidden="true"><span>10 cm</span><span style="left:60%">4 cm</span><span>touching</span></div></div><button class="btn solid" id="tapBtn">▶ Play a tap</button></div>
-      <div class="meter"><small>Energy reaching the chip <i>(illustrative)</i></small><div class="track"><i id="eFill"></i><b id="eMark"></b></div><output id="ePct"></output></div>
+      <div class="ctrl2"><div class="sliderBox"><label for="dist">Move the card closer <output id="distOut" for="dist"></output></label><input type="range" id="dist" min="0" max="10" step="0.1" value="2"><div class="ticks" aria-hidden="true"><span>10 cm</span><span style="left:60%">4 cm</span><span>on the reader</span></div></div><button class="btn solid" id="tapBtn">▶ Play a tap</button></div>
+      <div class="meter"><small>Power reaching the chip <i>(illustrative; 100% = resting on the reader)</i></small><div class="track"><i id="eFill"></i><b id="eMark"></b></div><output id="ePct"></output></div>
       <div class="stageStrip" id="stageStrip" role="group" aria-label="What happens inside the card"></div>
       <div class="stageText" id="stageText" aria-live="polite"><b id="stTitle"></b><p id="stSay"></p>
-        <div class="row"><button class="btn solid" id="stStep">Step →</button><button class="btn" id="stPlay">▶ Play all steps</button><button class="btn" id="circToggle" aria-expanded="false" aria-controls="realCircuit">Show the real circuit</button></div></div>
+        <div class="row"><button class="btn solid" id="stStep">Step →</button><button class="btn" id="stPlay">▶ Play all steps</button><button class="btn" id="circToggle" aria-expanded="false" aria-controls="realCircuit">Show the circuit diagram</button></div></div>
       <div class="diagram" id="realCircuit" hidden><svg id="csvg" viewBox="0 0 1200 640" role="img" aria-label="Reader and card circuits, with the magnetic field between them"></svg></div>
     </div>
-    <p class="note">Illustrative model: the distances, energy share and wake-up point are simplified, and the motion is slowed down enormously. In real life all four steps happen faster than a blink.</p>
+    <p class="note">Illustrative model. The distances, power levels and wake-up point are simplified, and 100% means the card is resting on the reader. In real life, all four steps happen faster than a blink.</p>
   </div>
 </section>
 <section class="band" id="pos"><div class="wrap">
@@ -409,23 +409,23 @@ html{scroll-behavior:auto;scroll-padding-top:65px}body{--volt:#9ce6d1;--copper:#
  <div class="machineBar"><button id="unpack" type="button" aria-expanded="false">Take it apart</button><div><button id="turnLeft" type="button" aria-label="Rotate left">↶</button><button id="turnRight" type="button" aria-label="Rotate right">↷</button></div></div></div>
  <div class="panel"><small class="eye" id="modelOrder">Assembled</small><h3 id="modelTitle">Handheld POS terminal</h3><p class="pdesc" id="modelText"></p><div id="machineTabs" aria-label="POS parts"></div><div class="row"><button class="btn" id="partBack">Back</button><button class="btn solid" id="partAdvance">Open the device</button></div></div>
 </div>
-<h3 class="circuitTitle" id="labTitle">Part 2: The card answers by changing how much power it takes</h3><p class="lede">Switch the reader on, move the card, and click any block to probe its signal. The scope under the diagram always shows the block you picked.</p>
+<h3 class="circuitTitle" id="labTitle">Part 2: The card answers by changing how much power it takes</h3><p class="lede">Switch the reader on, move the card, and click any block to probe its signal. The screen under the diagram (an oscilloscope) shows the signal at that block.</p>
 <div class="lab2">
  <div class="labMain" id="labMain">
   <div class="labBar">
    <button class="btn" type="button" id="fieldPower" aria-pressed="true">Reader: ON</button>
    <label class="gapCtl" for="readerGap"><span><span class="cardIco"></span>Card distance</span><input id="readerGap" type="range" min="0" max="8" step=".1" value="6"><output id="gapValue" for="readerGap"></output></label>
-   <div class="seg" role="group" aria-label="Antenna tuning"><button type="button" id="tuneOk" aria-pressed="true">Tuned</button><button type="button" id="tuneBad" aria-pressed="false">Mistuned</button></div>
+   <div class="seg" role="group" aria-label="Coil tuning"><button type="button" id="tuneOk" aria-pressed="true">Tuned</button><button type="button" id="tuneBad" aria-pressed="false">Mistuned</button></div>
    <button class="btn solid" type="button" id="posPlay">▶ Follow the signal</button>
    <div class="amtRow"><span class="amtLbl" id="amtLbl">Amount:</span><div class="seg" id="amtSeg" role="group" aria-labelledby="amtLbl"><button type="button" data-amt="15" aria-pressed="false">15 TL</button><button type="button" data-amt="100" aria-pressed="true">100 TL</button><button type="button" data-amt="1250" aria-pressed="false">1,250 TL</button></div><button class="btn" type="button" id="tapAgain">↻ Tap again</button>
-    <p class="amtNote">The terminal puts the amount inside its question to the card. The card answers with a one-time code made from that amount.</p></div>
+    <p class="amtNote">The terminal puts the amount inside its question to the card. The card answers with a one-time code that depends on that amount.</p></div>
   </div>
   <div class="posDiagram"><svg id="posBoard" role="group" aria-label="Block diagram of the reader circuit, with the card next to the reader coil"></svg></div>
   <div class="scopePane"><div class="scopeHead"><b id="probeName"></b><small id="probeKind"></small></div>
    <svg class="scopeScreen" viewBox="0 0 520 130" role="img" aria-label="Slowed-down signal at the selected block"><defs><pattern id="oscGrid" width="26" height="26" patternUnits="userSpaceOnUse"><path d="M26 0H0V26" fill="none" stroke="#2c4546" stroke-width="1"/></pattern></defs><rect width="520" height="130" fill="url(#oscGrid)"/><path d="M0 65H520" stroke="#526463" stroke-dasharray="3 5"/><path id="benchWave" fill="none" stroke="#a5e8d1" stroke-width="2.8" stroke-linejoin="round"/></svg>
-   <p class="scopeCap">Same carrier, different message. The 13.56 MHz wave and the power to the card stay the same; only the pattern of bits changes.</p>
+   <p class="scopeCap">Same carrier, different message. The 13.56 MHz wave and the power to the card stay the same. Only the pattern of bits changes.</p>
    <div id="bitBox" aria-live="polite"><div class="bitHead"><b>The message (bank-card mode)</b><small class="carrierTag">Carrier: 13.56 MHz · Power to card: same</small></div>
-    <div class="bitRow"><small>Reader → card (question, contains amount)</small><div class="bits" id="qBits"></div></div>
+    <div class="bitRow"><small>Reader → card (question with the amount)</small><div class="bits" id="qBits"></div></div>
     <div class="bitRow"><small>Card → reader (one-time code)</small><div class="bits reply" id="rBits"></div></div>
     <p class="pinNote" id="pinNote" hidden>Above a set limit, the terminal asks for your PIN.</p>
     <p class="retapNote" id="retapNote" hidden>Tap again with the same amount: the code changes every time.</p>
@@ -437,38 +437,38 @@ html{scroll-behavior:auto;scroll-padding-top:65px}body{--volt:#9ce6d1;--copper:#
   <small class="eye">Probe</small><h3 id="posName"></h3><span class="term" id="posTerm"></span>
   <h4>What it does</h4><p id="posDoes"></p>
   <h4>What you're seeing</h4><p id="posSee"></p>
-  <h4>Energy reaching the card <span style="text-transform:none;letter-spacing:0;color:#a9bcb8">(illustrative)</span></h4>
+  <h4>Power reaching the chip <span style="text-transform:none;letter-spacing:0;color:#a9bcb8">(illustrative; 100% = resting on the reader)</span></h4>
   <div class="track"><i id="powerFill"></i><b id="powerMark"></b></div><output id="powerPct"></output>
   <p id="readerState"></p>
  </aside>
 </div>
-<p class="benchNote">Illustrative model: signal heights are relative and everything is slowed down. The real carrier repeats 13.56 million cycles per second.</p>
+<p class="benchNote">Illustrative model: signal heights are relative and everything is slowed down. The real carrier runs at 13.56 million cycles per second.</p>
 </div></section>
 <section class="band" id="outro"><div class="wrap">
  <span class="eye">Recap</span>
  <h2>A day of taps.</h2>
- <p class="lede">From the ferry to the café: the same handshake between a reader and a chip, again and again.</p>
+ <p class="lede">From the ferry to the café, the same thing happens again and again: the reader powers the chip, and the card answers.</p>
  <ol class="timeline">
   <li><span class="tIcon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 15h18l-2.5 4h-13zM6 15v-5h12v5M9 10V7h6v3"/></svg></span><b>07:45</b><span class="tWhat">Ferry gate</span><small>transit card (NFC)</small></li>
   <li><span class="tIcon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5h8l-1.2 6.5L16 18H8l1.2-6.5zM5 21h14"/></svg></span><b>07:50</b><span class="tWhat">Tea on the ferry</span><small>contactless bank card (NFC)</small></li>
-  <li><span class="tIcon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 21V3h12v18M4 21h16M14.5 12h.5"/></svg></span><b>08:30</b><span class="tWhat">Office door</span><small>phone, here using NFC</small><em class="tNote">Many key cards are NFC; some older 125 kHz badges are a cousin using the same coil idea at a different frequency.</em></li>
+  <li><span class="tIcon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 21V3h12v18M4 21h16M14.5 12h.5"/></svg></span><b>08:30</b><span class="tWhat">Office door</span><small>phone, here using NFC</small><em class="tNote">Many door cards use NFC. Some older badges use 125 kHz instead: the same coil idea at a different frequency.</em></li>
   <li><span class="tIcon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="3"/><path d="M9 7l1-4h4l1 4M9 17l1 4h4l1-4M12 10v2.2l1.6 1"/></svg></span><b>12:30</b><span class="tWhat">Lunch</span><small>phone or watch payment (NFC)</small></li>
   <li><span class="tIcon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5zM16 10h2a2 2 0 0 1 0 4h-2M8.5 3v3M11.5 3v3"/></svg></span><b>17:45</b><span class="tWhat">Café</span><small>card again (NFC)</small></li>
  </ol>
  <div class="also">
   <div><h3>Also NFC</h3><ul class="chips"><li>E-passport chip at the airport</li><li>NFC stickers and tags</li><li>A tap starts pairing headphones, then the data moves over Bluetooth</li></ul></div>
  </div>
- <p class="closing">Tickets, payments, passports, doors: many of the things we tap all day work this way, with no battery inside.</p>
- <p class="closingSub">You'll tap again before tonight. Now you know: the reader brings the power, and the card only has to answer.</p>
+ <p class="closing">Tickets, payments, passports, many door cards: a lot of what we tap all day works this way, with no battery inside.</p>
+ <p class="closingSub">Next time you tap, the reader brings the power and the card just answers.</p>
  <div class="quiz panel"><small class="eye">The question we started with</small>
-  <h3>Where does the card's chip get its energy, and how does it reply without a transmitter?</h3>
+  <h3>Where does the chip get its power, and how does the card answer without a transmitter?</h3>
   <button class="btn solid" id="reveal" type="button" aria-expanded="false" aria-controls="answer">Reveal the answer</button>
-  <p id="answer" hidden>The reader's changing magnetic field induces a current in the card's coil; the card replies by switching a load, which slightly changes the reader's field.</p>
+  <p id="answer" hidden>The reader's changing magnetic field induces a current in the card's coil, and this powers the chip. The card answers by switching a load on and off, so it takes a little more power, then a little less. The reader feels these dips.</p>
  </div>
  <div class="sources"><b>Sources</b><ul>
   <li><a href="https://www.nxp.com/docs/en/data-sheet/PN5180A0XX_C3_C4.pdf">NXP PN5180 NFC reader IC datasheet</a></li>
   <li><a href="https://nfc-forum.org/learn/nfc-technology/">NFC Forum: NFC technology</a></li>
-  <li>ISO/IEC 14443 is the name of the international standard for contactless proximity cards like these.</li>
+  <li>ISO/IEC 14443: the international standard for contactless cards like these.</li>
  </ul></div>
  <p class="team">Team: İstikbalin Cezerileri · Global Virtual Hackathon 2026 · Theme: Unveiling Technology</p>
 </div></section>
@@ -483,11 +483,11 @@ const nfcI=(x,y,s,c)=>`<g transform="translate(${x} ${y}) scale(${s})" fill="non
 function spiral(x,y,w,h,n,g){const p=[];for(let i=0;i<n;i++){const o=i*g,x0=x+o,y0=y+o,x1=x+w-o,y1=y+h-o;p.push([x0,y1],[x0,y0],[x1,y0],[x1,y1],[x0+g,y1]);}return{d:'M'+p.map(q=>q.join(' ')).join(' L'),end:p[p.length-1]};}
 
 /* ================= ONE physics model, used by the intro, the card simulation and the reader lab =================
-   powerAt(d) = share of the reader's energy that reaches the card's chip when the card is d cm away.
-   ILLUSTRATIVE, not measured: it only shows the shape: energy falls off very quickly with distance. */
+   powerAt(d) = power reaching the chip when the card is d cm away, relative to the most it can get (1 = card resting on the reader).
+   ILLUSTRATIVE, not measured: it only shows the shape: power falls off very quickly with distance. */
 const WAKE=0.25;                                          // the chip switches on when it gets at least this share
 const powerAt=d=>1/(1+Math.pow(Math.max(0,d)/2.8,3));     // with these numbers the chip wakes at about 4 cm
-const cm=d=>d<.05?'touching':d.toFixed(1)+' cm';
+const cm=d=>d<.05?'0 cm (on the reader)':d.toFixed(1)+' cm';
 const pct=p=>Math.round(p*100)+'%';
 
 /* ================= card artwork (no real brand) ================= */
@@ -501,10 +501,10 @@ $('#Lfront').innerHTML='<g id="shape-on">'+cardBank()+'</g>';
 $('#Lback').innerHTML='<g id="shape-arka"><rect width="856" height="540" rx="38" fill="#e9eeea"/><rect x="0" y="68" width="856" height="72" fill="#273431"/><rect x="68" y="205" width="455" height="58" rx="6" fill="#cfd7d1"/></g>';
 $('#Lcore').innerHTML=`<g id="shape-anten"><path d="${big.d}" fill="none" stroke="#d9824a" stroke-width="9" stroke-linejoin="round"/><path d="M40 500 L560 500 L600 300" fill="none" stroke="#b5642f" stroke-width="9" stroke-dasharray="16 10"/><path d="M${big.end[0]} ${big.end[1]} L${big.end[0]} 300 L590 300" fill="none" stroke="#d9824a" stroke-width="9"/><path id="anFlow" d="${big.d}" fill="none" stroke="#49e0ff" stroke-width="5" stroke-dasharray="10 30" stroke-linejoin="round" opacity="0"/></g>`;
 const cardParts=[
- {key:'on',name:'Front layer',text:'The printed face and a clear protective film. Together they form the outside of the card and protect the print from daily wear.',why:'Plastic and ink let the magnetic field pass straight through, which is why the card still works inside a wallet.'},
- {key:'cip',name:'Chip module',text:'Both ends of the antenna are connected here. The chip turns the alternating voltage from the antenna into steady power, runs the reader\'s command, and answers by changing the electrical load on the antenna.',why:'This tiny chip is a complete computer that only exists while a reader is powering it.'},
- {key:'anten',name:'Antenna coil',text:'A wire that loops around the edge of the card. The reader\'s changing magnetic field induces a voltage in it. Both ends go to the chip, and the chip\'s answer travels back to the reader through this same coil.',why:'A bigger loop catches more of the field. That is why the coil runs right along the edges of the card.'},
- {key:'destek',name:'Carrier layer',text:'A thin insulating sheet that holds the antenna and the chip connections in place. In a real card these parts sit on the same inner layer; here we pull them apart so you can see them.',why:'The layers are laminated (pressed together with heat), so the thin coil wire is protected from bending and breaking.'},
+ {key:'on',name:'Front layer',text:'The printed face and a clear protective film. Together they form the outside of the card and protect the print from daily wear.',why:'Plastic and ink let the magnetic field pass straight through, which is why the card can still work inside a wallet.'},
+ {key:'cip',name:'Chip module',text:'Both ends of the coil connect here. The chip turns the alternating voltage from the coil into steady power, runs the reader\'s command, and answers by changing its load on the coil.',why:'This tiny chip is a small computer, and it only works while a reader is powering it.'},
+ {key:'anten',name:'Coil (antenna)',text:'A wire that loops around the edge of the card. The reader\'s changing magnetic field induces a voltage in it. Both ends go to the chip. The reader also feels the chip\'s answer through this same coil.',why:'A bigger loop catches more of the field. That is why the coil runs right along the edges of the card.'},
+ {key:'destek',name:'Inner layer',text:'A thin insulating sheet that holds the coil and the chip contacts in place. In a real card, they sit on this one layer. Here we pull them apart so you can see them.',why:'The layers are laminated (pressed together with heat), so the thin coil wire is protected from bending and breaking.'},
  {key:'arka',name:'Back layer',text:'Covers the back of the card and protects the antenna and chip from scratches.',why:'Nothing here is electrical. Peel the layers away and a card is just plastic, one coil and one chip.'}
 ];
 const stack=$('#stack'),layers=[...stack.querySelectorAll('.layer')],tabs=$('#partTabs');let st=-1;
@@ -520,7 +520,7 @@ function setStep(n){
  $('#partTag').textContent=p?p.name:'Closed card';
  $('#pTitle').textContent=p?p.name:'From the outside in';
  $('#pDesc').textContent=p?p.text:'Click the card to go from the front layer to the back layer. To jump to one part, pick its name.';
- $('#pWhy').textContent=p?'Why it matters: '+p.why:'Five layers, one coil, one chip, and no battery anywhere.';
+ $('#pWhy').textContent=p?'Why it matters: '+p.why:'In our model: five layers, one coil, one chip and no battery.';
  $('#partCount').textContent=p?(st+1)+' / '+cardParts.length:'Overview';
  $('#pPrev').disabled=st===-1;$('#pNext').textContent=st===cardParts.length-1?'Where does the power come from?':st===-1?'Open the card':'Next part';
 }
@@ -534,16 +534,16 @@ let cd=8;                     // distance between card and reader, in cm
 let stage=-1,fill=0,stageTimer=null,tapAnim=null;
 const awakeNow=()=>powerAt(cd)>=WAKE;
 const stages=[
- {k:'Catch',title:'1 · Catch the field',parts:['C1'],say:'The reader\'s coil makes a magnetic field that oscillates 13.56 million cycles per second. When that changing field passes through the card\'s coil, it pushes a current around the coil. Two coils, and they never touch.'},
- {k:'Fill',title:'2 · Fill the tank',parts:['C2','C3'],say:'That current keeps flowing back and forth. A rectifier, a one-way gate for electricity (like the ferry turnstile), lets it through in one direction only, and it fills a tiny storage capacitor.'},
+ {k:'Catch',title:'1 · Catch the field',parts:['C1'],say:'The reader\'s coil makes a magnetic field that swings back and forth at 13.56 million cycles per second. When this field passes through the card\'s coil, it pushes a current around the coil. Two coils, and they never touch.'},
+ {k:'Fill',title:'2 · Fill the tank',parts:['C2','C3'],say:'This current flows back and forth. A rectifier works like the ferry turnstile: it lets current through in one direction only. The current then fills a tiny storage capacitor, the card\'s energy tank.'},
  {k:'Wake',title:'3 · Wake up',parts:['C4'],say:'Once the tank holds enough energy, the chip switches on. It reads the reader\'s question, a few bytes written onto the same field.'},
- {k:'Answer',title:'4 · Answer',parts:['C5','R4','R5'],say:'The card has no transmitter. It answers by switching a small load on and off across its coil. That slightly changes the reader\'s field, and the reader\'s listener turns those tiny dips into data.'}
+ {k:'Answer',title:'4 · Answer',parts:['C5','R4','R5'],say:'The card has no transmitter. It answers by switching a small load on and off, so it takes a little more power, then a little less. The reader feels these small dips, and its listener turns them into data.'}
 ];
 const stageBtns=stages.map((s,i)=>{const b=document.createElement('button');b.type='button';b.innerHTML='<b>Step '+(i+1)+'</b>'+s.k;b.onclick=()=>{stopStages();setStage(i)};$('#stageStrip').append(b);return b});
 function say(title,text,warn){$('#stTitle').textContent=title;$('#stSay').textContent=text;$('#stageText').classList.toggle('warn',!!warn)}
 function markStages(){stageBtns.forEach((b,i)=>{if(i===stage)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current');b.classList.toggle('done',i<stage)})}
 function setStage(n){
- if(n>0&&!awakeNow()){stopStages();say('Not enough energy yet','The card is '+cm(cd)+' away, so only '+pct(powerAt(cd))+' of the energy reaches the chip. It needs about '+pct(WAKE)+'. Move the card closer than about 4 cm.',true);return false}
+ if(n>0&&!awakeNow()){stopStages();say('Not enough power yet','The card is '+cm(cd)+' away, so the chip gets only '+pct(powerAt(cd))+' of the power it gets when the card rests on the reader. It needs about '+pct(WAKE)+'. Move the card closer than about 4 cm.',true);return false}
  stage=n;if(n<1)fill=0;if(n>1)fill=1;markStages();say(stages[n].title,stages[n].say);paintCircuit();return true;
 }
 function stopStages(){clearTimeout(stageTimer);stageTimer=null;$('#stPlay').textContent='▶ Play all steps'}
@@ -554,19 +554,19 @@ function playStages(){
 }
 $('#stStep').onclick=()=>{stopStages();setStage(stage>=stages.length-1?0:stage+1)};
 $('#stPlay').onclick=()=>{if(stageTimer)stopStages();else playStages()};
-const dist=$('#dist');     // the slider runs from far (left) to touching (right), so its value is 10 - distance
+const dist=$('#dist');     // the slider runs from far (left) to resting on the reader (right), so its value is 10 - distance
 function setDistance(d){
  cd=clamp(d,0,10);dist.value=(10-cd).toFixed(1);$('#distOut').textContent=cm(cd);
- const p=powerAt(cd);$('#eFill').style.width=pct(p);$('#ePct').textContent=pct(p)+(p>=WAKE?' · chip awake':' · chip asleep');
- if(stage>0&&p<WAKE){stopStages();stage=0;fill=0;markStages();say('The chip lost power','At '+cm(cd)+' too little energy arrives, so the chip switched off. Move the card back closer.',true)}
+ const p=powerAt(cd);$('#eFill').style.width=pct(p);$('#ePct').textContent=pct(p)+(p>=WAKE?' of maximum · chip awake':' of maximum · chip asleep');
+ if(stage>0&&p<WAKE){stopStages();stage=0;fill=0;markStages();say('The chip lost power','At '+cm(cd)+', too little power arrives, so the chip switched off. Move the card closer again.',true)}
  paintCircuit();
 }
 dist.addEventListener('input',()=>{tapAnim=null;setDistance(10-Number(dist.value))});
 $('#eMark').style.left=pct(WAKE);
 $('#tapBtn').onclick=()=>{stopStages();tapAnim={from:cd,t0:performance.now()}};   // animated in devreStep()
-$('#circToggle').onclick=()=>{const box=$('#realCircuit'),open=box.hidden;box.hidden=!open;$('#circToggle').setAttribute('aria-expanded',String(open));$('#circToggle').textContent=open?'Hide the real circuit':'Show the real circuit';paintCircuit()};
+$('#circToggle').onclick=()=>{const box=$('#realCircuit'),open=box.hidden;box.hidden=!open;$('#circToggle').setAttribute('aria-expanded',String(open));$('#circToggle').textContent=open?'Hide the circuit diagram':'Show the circuit diagram';paintCircuit()};
 
-/* the real circuit, behind the "Show the real circuit" button */
+/* the circuit diagram, behind the "Show the circuit diagram" button */
 const csvg=$('#csvg');
 const blk=(id,x,y,w,t1,t2)=>`<g class="blk" id="${id}" tabindex="0" role="button" aria-label="${t1}"><rect class="b" x="${x}" y="${y}" width="${w}" height="60" rx="12"/><text class="t1" x="${x+16}" y="${y+26}">${t1}</text><text class="t2" x="${x+16}" y="${y+46}">${t2}</text></g>`;
 const rcoil=spiral(392,170,60,280,4,9),ccoil=spiral(14,170,60,280,4,9);
@@ -580,11 +580,11 @@ c+=`<text id="gapT" x="588" y="610" text-anchor="middle" fill="#8d99a3" ${F} fon
 c+=`<g id="cardG" transform="translate(690 0)"><rect x="0" y="20" width="500" height="600" rx="20" fill="#16120e" stroke="#3a2c20"/><text x="96" y="54" fill="#e9eef0" ${F} font-size="17" font-weight="800">Card</text><text x="96" y="76" fill="#8d99a3" ${F} font-size="13">no battery inside</text>`;
 c+=`<path id="loopBase" class="wire" d="M44 170 V128 H300 V560 H44 V450"/><path id="loopFlow" class="flow cu" d="M44 170 V128 H300 V560 H44 V450"/>`;
 c+=`<path d="${ccoil.d}" id="cCoil" fill="none" stroke="#d9824a" stroke-width="3.5" stroke-linejoin="round"/><path d="${ccoil.d}" id="cCoilF" fill="none" stroke="#ffd28a" stroke-width="3.5" stroke-dasharray="6 12" opacity="0"/><text x="44" y="470" text-anchor="middle" fill="#8d99a3" ${F} font-size="12">coil</text>`;
-c+=blk('C1',96,100,380,'Tuning capacitor','tunes the coil to 13.56 MHz, like a radio station')+blk('C2',96,190,380,'Rectifier','one-way gate: back-and-forth → one way')+blk('C3',96,280,380,'Storage capacitor','a tiny energy tank')+`<rect x="330" y="322" width="130" height="8" rx="4" fill="#2a1d14"/><rect id="C3bar" x="330" y="322" width="0" height="8" rx="4" fill="#ffb35c"/>`+blk('C4',96,370,380,'Chip: processor + memory','wakes up and runs the card app')+blk('C5',96,460,380,'Load switch','switches a load to answer')+`<g class="blk" id="C6" tabindex="0" role="button" aria-label="Closed loop"><rect class="b" x="96" y="550" width="380" height="52" rx="12"/><text class="t1" x="112" y="582">Closed loop</text><text class="t2" x="250" y="582">coil → chip → coil</text></g>`;
+c+=blk('C1',96,100,380,'Tuning capacitor','tunes the coil to 13.56 MHz, like a radio station')+blk('C2',96,190,380,'Rectifier','one-way gate: back-and-forth → one way')+blk('C3',96,280,380,'Storage capacitor','a tiny energy tank')+`<rect x="330" y="322" width="130" height="8" rx="4" fill="#2a1d14"/><rect id="C3bar" x="330" y="322" width="0" height="8" rx="4" fill="#ffb35c"/>`+blk('C4',96,370,380,'Chip: processor + memory','wakes up and runs the card app')+blk('C5',96,460,380,'Load switch','takes more or less power')+`<g class="blk" id="C6" tabindex="0" role="button" aria-label="Closed loop"><rect class="b" x="96" y="550" width="380" height="52" rx="12"/><text class="t1" x="112" y="582">Closed loop</text><text class="t2" x="250" y="582">coil → chip → coil</text></g>`;
 c+=`</g>`;
 csvg.innerHTML=c;
-const partInfo={R1:['Power','The POS terminal runs on its battery or charger. In the end, this is where the card\'s energy comes from too.'],R2:['Wave maker','Makes an electrical wave of 13.56 million cycles per second, the carrier.'],R3:['Amplifier','Makes the wave strong enough to drive the reader coil, which then makes the magnetic field.'],R4:['Listener','When the card switches its load, the current in the reader coil dips slightly. The listener reads those dips as ones and zeros.'],R5:['Processor','Decodes the card\'s answer and passes it to the payment app.'],R6:['Result','The card and reader have finished talking. Approving the payment is a separate step that involves the bank.'],
- C1:['Tuning capacitor','Together with the coil it forms a circuit tuned to 13.56 MHz, like tuning a radio to one station: it responds strongly to the reader\'s field.'],C2:['Rectifier','The current in the coil flows back and forth. The rectifier turns it into one direction so the chip can use it.'],C3:['Storage capacitor','A tiny energy tank that fills in a moment. Like a battery, but it only holds energy for a very short time.'],C4:['Chip: processor + memory','Switches on when the tank is full enough. It runs the card app and works out the answer.'],C5:['Load switch','The card has no transmitter. It switches a load on and off across its coil; the reader feels this as tiny dips. That is the message.'],C6:['Closed loop','The two ends of the coil go to the chip. Current leaves the coil, passes through the chip and returns to the coil. Without a closed loop, nothing would work.']};
+const partInfo={R1:['Power','The POS terminal runs on its battery or charger. In the end, this is where the card\'s energy comes from too.'],R2:['Wave maker','Makes an electrical wave of 13.56 million cycles per second, called the carrier.'],R3:['Amplifier','Makes the wave strong enough to drive the reader coil, which then makes the magnetic field.'],R4:['Listener','When the card switches its load, the current in the reader coil dips slightly. The listener reads those dips as ones and zeros.'],R5:['Processor','Decodes the card\'s answer and passes it to the payment app.'],R6:['Result','The card and reader have finished talking. Approving the payment is a separate step that involves the bank.'],
+ C1:['Tuning capacitor','Together with the coil, it is tuned to 13.56 MHz, like a radio set to one station. This makes the coil respond strongly to the reader\'s field.'],C2:['Rectifier','The current in the coil flows back and forth. The rectifier turns it into one direction so the chip can use it.'],C3:['Storage capacitor','A tiny energy tank that fills in a moment. Like a battery, but it only holds energy for a very short time.'],C4:['Chip: processor + memory','Switches on when the tank is full enough. It runs the card app and works out the answer.'],C5:['Load switch','The card has no transmitter. It switches a load on and off across its coil; the reader feels this as tiny dips. That is its answer.'],C6:['Closed loop','The two ends of the coil go to the chip. Current leaves the coil, passes through the chip and returns to the coil. Without a closed loop, nothing would work.']};
 const cfield=$('#cfield');cfield.innerHTML=Array.from({length:12},(_,i)=>{const r=30+i*28;return `<path d="M452 ${310-r*2.2} Q${452+r*1.6} 310 452 ${310+r*2.2}" fill="none" stroke="#49e0ff" stroke-width="2" stroke-dasharray="4 10"/>`}).join('');const cfp=[...cfield.children];
 document.querySelectorAll('#csvg .blk').forEach(b=>{const show=()=>{const [t,d]=partInfo[b.id];say(t,d)};b.addEventListener('click',show);b.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();show()}})});
 function paintCircuit(){
@@ -624,7 +624,7 @@ function drawField(now){
  pen.fillStyle='#16292c';pen.strokeStyle='#4a6e6b';pen.lineWidth=1.5;pen.beginPath();pen.roundRect(cx-205*q,ry+10,410*q,50,12);pen.fill();pen.stroke();
  const dipping=stage===3&&awake&&!reduce&&Math.sin(now/90)>0;   // the card's answer makes the reader coil dip
  for(let i=0;i<3;i++){pen.strokeStyle=dipping?'#6fb3a3':'#9ce6d1';pen.lineWidth=2.2;pen.beginPath();pen.ellipse(cx,ry,(170-i*9)*q,14-i*2.5,0,0,2*Math.PI);pen.stroke()}
- label(q<1?'Reader coil (in the POS)':'Reader coil (inside the POS)',cx,ry+42,'#cfe6e1');
+ label(q<1?'Reader coil (in the terminal)':'Reader coil (inside the terminal)',cx,ry+42,'#cfe6e1');
  // 3. the card, parallel to the reader, with its own coil and chip
  pen.fillStyle=awake?'rgba(34,67,61,.88)':'rgba(38,54,58,.88)';pen.strokeStyle='#7fa8a6';pen.lineWidth=1.2;pen.beginPath();pen.roundRect(cx-185*q,cy-16,370*q,32,10);pen.fill();pen.stroke();
  const blink=stage===3&&awake&&!reduce?(Math.sin(now/90)>0?1:.35):1;
@@ -642,7 +642,7 @@ function drawField(now){
  pen.fillStyle=awake?'#f8c37b':'#5e6968';pen.fillRect(chipX,chipY,28,16);pen.shadowBlur=0;
  if(stage===2){pen.strokeStyle='#ffd28a';pen.lineWidth=2;pen.beginPath();pen.arc(chipX+14,chipY+8,24,0,2*Math.PI);pen.stroke()}
  if(stage>=1){pen.fillStyle='#2a1d14';pen.fillRect(chipX-8,chipY-14,44,6);pen.fillStyle='#ffb35c';pen.fillRect(chipX-8,chipY-14,44*fill,6)}
- label(awake?'chip awake':'chip off',chipX+14,cy-22-(stage>=1?8:0),awake?'#ffd194':'#adbfbc');
+ label(awake?'chip awake':'chip asleep',chipX+14,cy-22-(stage>=1?8:0),awake?'#ffd194':'#adbfbc');
  label('Card',cx-195*q,cy-2,'#e7d6c6','right');label('no battery',cx-195*q,cy-2+fs*1.1,'#bfae9f','right');
  // distance marker
  pen.strokeStyle='#8d99a3';pen.lineWidth=1;pen.beginPath();const mx=W-80;pen.moveTo(mx,cy);pen.lineTo(mx,ry);pen.moveTo(mx-6,cy);pen.lineTo(mx+6,cy);pen.moveTo(mx-6,ry);pen.lineTo(mx+6,ry);pen.stroke();
@@ -661,16 +661,16 @@ setDistance(8);say('The reader\'s field is on','Move the card closer with the sl
 const posParts=[
  {n:'Power supply',term:'battery + voltage regulator',short:'battery → steady voltage',sig:'Steady (DC) voltage',symbol:'M8 16h9m-4-5v10m10-5h9',does:'Takes energy from the battery or charger and turns it into the steady voltages the other blocks need. All the energy the card will use starts here.'},
  {n:'Wave maker',term:'RF transmitter / oscillator',short:'13.56 MHz wave',sig:'13.56 MHz carrier (slowed down)',symbol:'M2 17q5-17 10 0t10 0t10 0',does:'Makes an electrical wave of 13.56 million cycles per second, called the carrier. The reader\'s questions to the card are written onto this wave by briefly changing its strength.'},
- {n:'Tuning circuit',term:'matching network',short:'matches coil to wave',sig:'Wave sent to the coil',symbol:'M2 16h11m0-9v18m7-18v18m0-9h12',does:'A few capacitors and small coils that match the antenna to the wave maker, like tuning a radio to the right station. When it is tuned, most of the energy ends up in the field.'},
+ {n:'Tuning circuit',term:'matching network',short:'matches coil to wave',sig:'Wave sent to the coil',symbol:'M2 16h11m0-9v18m7-18v18m0-9h12',does:'A few capacitors and small coils that match the reader coil to the wave maker, like tuning a radio to the right station. When it is tuned, much more of the power reaches the coil and its field.'},
  {n:'Reader coil',term:'antenna',short:'makes the magnetic field',sig:'Current in the reader coil',symbol:'M2 27V5h29v22H7V10h19v12H12v-7h9',does:'A flat copper coil right under the tap symbol. The current through it creates a changing magnetic field just above the reader. The same coil also feels the card\'s answer.'},
  {n:'Listener',term:'receiver / demodulator',short:'hears the card\'s answer',sig:'Strength (envelope) of the coil signal',symbol:'M2 17h6l5-10 5 20 5-13 3 3h7',does:'Ignores the fast carrier wave and only follows its strength. When the card switches its load, the strength dips a little; the listener turns those dips into a clean signal.'},
  {n:'Processor',term:'terminal CPU',short:'turns it into data',sig:'Data bits',symbol:'M8 6h19v20H8ZM3 11h5m-5 9h5m19-9h6m-6 9h6',does:'Turns the listener\'s signal into bytes and runs the payment app. Reading the card is one step; the bank approving the payment is a separate, later step.'}
 ];
 const pieces=[
- {key:'lid',name:'Front cover and keys',info:'Lift the front cover and the NFC antenna appears underneath. The screen shows the amount and status; the keys send your input to the processor.',refs:[5],z:28,lift:108},
- {key:'antenna',name:'NFC antenna',info:'The copper loop just under the cover is the reader coil. It connects to the tuning circuit on the main board and sits right under the spot where you tap.',refs:[3],z:24,lift:64},
- {key:'pcb',name:'Main board',info:'Under the antenna is the green main board. It carries the wave maker, the listener, the tuning parts and the processor. Probe each of them in the Reader lab below.',refs:[1,2,4,5],z:18,lift:16},
- {key:'battery',name:'Battery',info:'The battery powers the whole terminal, and so, indirectly, the card too. Regulators on the main board turn it into the voltages each part needs.',refs:[0],z:5,lift:-49},
+ {key:'lid',name:'Front cover and keys',info:'Lift the front cover and you see the reader coil underneath. The screen shows the amount and status; the keys send your input to the processor.',refs:[5],z:28,lift:108},
+ {key:'antenna',name:'Reader coil (antenna)',info:'The copper loop just under the cover is the reader coil. It connects to the tuning circuit on the main board and sits right under the spot where you tap.',refs:[3],z:24,lift:64},
+ {key:'pcb',name:'Main board',info:'Under the coil is the green main board. It carries the wave maker, the tuning circuit, the listener and the processor. Probe each of them in the Reader lab below.',refs:[1,2,4,5],z:18,lift:16},
+ {key:'battery',name:'Battery',info:'The battery powers the whole terminal, and, through the field, the card too. Regulators on the main board turn its voltage into the voltages each part needs.',refs:[0],z:5,lift:-49},
  {key:'base',name:'Bottom case',info:'Holds the battery and the main board; screws keep the two halves together. This part is purely mechanical.',refs:[],z:0,lift:-102}
 ];
 const ASSEMBLED='Start by lifting the front cover with the screen and keys. Step by step you will see what sits underneath.';
@@ -757,7 +757,7 @@ function seeing(i,st){
  return [
   'A flat line high above zero: a steady voltage. It stays the same whatever the card does.',
   'A smooth wave. In reality it repeats 13.56 million cycles per second; here it is slowed down so you can see it.',
-  st.tuned?'The same wave at full strength: the tuning lets it flow into the coil.':'A much smaller wave: the mistuned antenna wastes energy, so less reaches the field and the card.',
+  st.tuned?'The same wave at full strength: the tuning lets it flow into the coil.':'A much smaller wave. Mistuned, the circuit wastes power, so less reaches the field and the card.',
   asleep?'A steady wave: the field is on, but '+far+'.':'Watch the height of the wave: it dips in a pattern. Those dips are the card switching its load. That is its answer.',
   asleep?'A flat line: no dips, so there is nothing to hear yet. Move the card closer than about 4 cm.':'Only the strength of the wave is left. Each dip is part of the card\'s answer.',
   asleep?'No data yet: the processor is waiting for an answer.':'Clean ones and zeros: the card\'s answer as data, ready for the payment app.'
@@ -804,8 +804,8 @@ function updateLab(){
  const [x,y]=L.card(lab.gap),card=$('#labCard');card.setAttribute('transform',`translate(${x} ${y})`);card.classList.toggle('awake',st.awake);card.querySelector('text').textContent='card · '+cm(lab.gap);
  $('#posName').textContent=p.n;$('#posTerm').textContent=p.term;$('#posDoes').textContent=p.does;$('#posSee').textContent=seeing(lab.sel,st);
  $('#probeName').textContent='Probe: '+p.n;$('#probeKind').textContent=p.sig;
- $('#powerFill').style.width=pct(st.power);$('#powerPct').textContent=pct(st.power)+(st.awake?' · chip awake':' · chip asleep');
- $('#readerState').textContent=!st.on?'Reader off: no field, no energy for the card.':st.awake?'Card awake and answering.':lab.tuned?'Field on, card asleep. Move it closer.':'Field on, card asleep. Try tuning the antenna.';
+ $('#powerFill').style.width=pct(st.power);$('#powerPct').textContent=pct(st.power)+(st.awake?' of maximum · chip awake':' of maximum · chip asleep');
+ $('#readerState').textContent=!st.on?'Reader off: no field, no energy for the card.':st.awake?'Card awake and answering.':lab.tuned?'Field on, card asleep. Move it closer.':'Field on, card asleep. Select Tuned or move closer.';
  updateBits(st);
  paintScope();
 }
@@ -855,17 +855,17 @@ function labStep(dt,now){
 
 /* ================= #trip: one morning in Istanbul ================= */
 const images=["img/scene00.webp", "img/scene01.webp", "img/scene02.webp", "img/scene03.webp", "img/scene04.webp", "img/scene05.webp", "img/scene06.webp", "img/scene07.webp", "img/scene08.webp", "img/scene09.webp", "img/scene10.webp", "img/scene11.webp", "img/scene12.webp"];const actors={"2": "img/actor02.webp", "3": "img/actor03.webp", "4": "img/actor04.webp", "6": "img/actor06.webp", "10": "img/actor10.webp", "12": "img/actor12.webp"};const scenes=[
- {photo:0, time:'07:40',kicker:'Istanbul, where Europe meets Asia',title:'One city, <em>countless taps.</em>',sub:'Millions here ride and pay by tapping a card with no battery. Follow one commuter\'s morning.'},
+ {photo:0, time:'07:40',kicker:'Istanbul, where Europe meets Asia',title:'One city, <em>countless taps.</em>',sub:'Here, people ride and pay by tapping a card with no battery. Follow one commuter\'s morning.'},
  {photo:1, time:'07:43',kicker:'Eminönü pier, European side',title:'Here the ferry is <em>the bus.</em>',sub:'Crowds cross the Bosphorus strait every morning. Nobody shows a ticket at the gate. They tap.'},
  {photo:2, time:'07:44',kicker:'Ferry gates',title:'No ticket. <em>No coins.</em>',sub:'Just an Istanbulkart, the city\'s transit card for ferry, metro, bus and tram.'},
  {photo:3, time:'07:45',kicker:'Tap 1 · Istanbulkart',title:'Beep. <em>Green light.</em>',sub:'No battery, no plug, yet the gate read it in a fraction of a second.',tap:true,push:'65% 53%'},
- {photo:5, time:'07:50',kicker:'Tap 2 · Tea on the ferry',title:'Tea, <em>paid by tap.</em>',sub:'Even for a glass of tea, many people just hold a bank card to the card machine (POS).',tap:true},
- {photo:6, time:'07:50',kicker:'Look closer',title:'A gap of <em>a few centimetres.</em>',sub:'Across this gap the reader sends the card its power and its questions, and feels its answer.',push:'62% 48%'},
+ {photo:5, time:'07:50',kicker:'Tap 2 · Tea on the ferry',title:'Tea, <em>paid by tap.</em>',sub:'Even for a glass of tea, many people just hold a bank card to the card machine (POS terminal).',tap:true},
+ {photo:6, time:'07:50',kicker:'Look closer',title:'A gap of <em>a few centimetres.</em>',sub:'Across this gap, the reader sends the card power and questions. Then it feels the card\'s answer.',push:'62% 48%'},
  {photo:7, time:'08:03',kicker:'Crossing the Bosphorus',title:'Past the <em>Maiden\'s Tower.</em>',sub:'Between two continents, by the small island tower Istanbul calls Kız Kulesi. So far: 2 taps, 2 cards, 0 batteries.'},
  {photo:8, time:'08:08',kicker:'Üsküdar, Asian side',title:'Welcome to <em>Asia.</em>',sub:'A short ride, a new continent. The next tap waits at work.'},
  {photo:10,time:'08:30',kicker:'Tap 3 · Office door',title:'This time, <em>a phone.</em>',sub:'The phone acts like a card: same 13.56 MHz field, same few centimetres. Unlike a card, it uses its own battery.',tap:true},
- {photo:11,time:'12:00',kicker:'The workday',title:'Hours pass. <em>Taps don\'t.</em>',sub:'Lunch, a snack machine, the metro home: the same handshake between a reader and a chip.',clock:[511,1054]},
- {photo:12,time:'17:45',kicker:'Tap 4 · Café in Üsküdar',title:'So how does <em>this work?</em>',sub:'A battery-free card just woke up and answered. The reader decides. Scroll, and we\'ll open it.',tap:true,push:'61% 50%'}
+ {photo:11,time:'12:00',kicker:'The workday',title:'Hours pass. <em>The taps go on.</em>',sub:'Lunch, a snack machine, the metro: the same exchange between a reader and a chip.',clock:[511,1054]},
+ {photo:12,time:'17:45',kicker:'Tap 4 · Café in Üsküdar',title:'So how does <em>this work?</em>',sub:'A card with no battery just woke up and answered. The terminal and the bank did the rest. Scroll down to open the card.',tap:true,push:'61% 50%'}
 ];
 const alternateAngles={"2": "img/cutaway02.webp", "7": "img/cutaway07.webp", "12": "img/cutaway12.webp"};
 // Scene 3 photo: the student will replace images[3] with a new photo that already shows the hand.
@@ -970,7 +970,7 @@ function introStep(dt,now){
  $('#iCurrent').setAttribute('opacity',awake?1:0);if(!reduce)$('#iCurrent').setAttribute('stroke-dashoffset',(-now/12).toFixed(0));
  $('#iChipGlow').setAttribute('opacity',awake?(.75+.25*Math.sin(now/200)).toFixed(2):0);
  answerStep(dt,now,d,p,awake);
- const text=awake?'<b>Chip awake.</b> It is running on energy from your reader'+(d<.05?', which is touching it.':', '+cm(d)+' away.'):'Reader '+cm(d)+' away: <b>'+pct(p)+'</b> of the energy reaches the chip (illustrative). It needs '+pct(WAKE)+' to wake up.';
+ const text=awake?'<b>Chip awake.</b> It runs on power from your reader'+(d<.05?', which is resting on it.':', '+cm(d)+' away.'):'Reader '+cm(d)+' away: the chip gets <b>'+pct(p)+'</b> of the power it gets when the card rests on the reader (illustrative). It needs '+pct(WAKE)+' to wake up.';
  if(text!==statShown){statShown=text;$('#introStat').innerHTML=text}
 }
 
@@ -985,7 +985,7 @@ function newAnswer(auto){
 $('#askCard').onclick=()=>{newAnswer(false);lastInput=performance.now()};
 function answerStep(dt,now,d,p,awake){
  // the button only works while the chip is awake
- const btn=$('#askCard');if(btn.disabled===awake){btn.disabled=!awake;btn.textContent=awake?'Ask the card':'Move closer: the chip is asleep'}
+ const btn=$('#askCard');if(btn.disabled===awake){btn.disabled=!awake;btn.textContent=awake?'Ask the card':'Chip asleep. Move the reader closer'}
  if(!awake){if(ans&&ans.auto&&ans.head<1)autoDone=false;ans=null;wakeT=0}   // an interrupted automatic answer is tried again
  else{if(!wakeT)wakeT=now;if(!autoDone&&now-wakeT>1000){autoDone=true;newAnswer(true)}}
  if(ans&&ans.head<1){ans.head=Math.min(1,ans.head+dt/2.4);if(ans.head>=1&&!answeredOnce){answeredOnce=true;$('#takeaway').hidden=false}}
