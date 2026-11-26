@@ -50,7 +50,7 @@ No install, no build step. Visit the live site, or serve the folder (for example
 
 We used **Claude** (Anthropic) to help build the prototype (the website code) and the presentation materials (texts and the demo video), and **ChatGPT** (OpenAI) to generate the photos used in the site. We chose the topic, the explanations and the design decisions, checked the physics, and can explain every part of the code.
 
-**Images:** all photos in `img/` were generated with ChatGPT; they contain no real logos or brand text.
+**Images:** all photos in `img/` were generated with ChatGPT.
 
 ## Team
 
