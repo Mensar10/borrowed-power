@@ -25,7 +25,7 @@ The reader's magnetic field powers the chip, and the card answers by changing ho
 
 ## How to run
 
-No install, no build step. Open `index.html` in a modern browser, or visit the live site.
+No install, no build step. Visit the live site, or serve the folder (for example `python3 -m http.server`) and open `index.html`. The photos load from `img/`.
 
 ## How it's built
 
@@ -33,7 +33,7 @@ No install, no build step. Open `index.html` in a modern browser, or visit the l
 - One animation loop (`requestAnimationFrame`) drives every moving part.
 - One shared, illustrative physics model: `powerAt(d)` gives the relative power reaching the card at distance `d` (cm), and the chip wakes above `WAKE`. The same function is used in the intro, the Power section and the Reader lab.
 - `waveAt()` draws the signal shown on the Reader lab scope.
-- Photos are embedded in the file as compressed WebP images (page size about 7 MB).
+- Photos are separate compressed WebP files in `img/` (about 5 MB in total); the page itself is one ~100 KB HTML file.
 - Respects the `prefers-reduced-motion` setting.
 
 ## What we simplified
@@ -56,7 +56,8 @@ No install, no build step. Open `index.html` in a modern browser, or visit the l
 
 **İstikbalin Cezerileri**, Istanbul
 
-- [[Name]] — [[role]] — [[sections of the code]]
+- Eymen Efe Çetin — [[role]] — [[sections of the code]]
+- Mustafa Ensar Erol — [[role]] — [[sections of the code]]
 
 ## Sources
 
