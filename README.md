@@ -4,9 +4,9 @@
 
 An interactive, single-page explainer of how contactless NFC cards (transit cards, bank cards, phones) work without a battery. Built for the Global Virtual Hackathon 2026, theme *Unveiling Technology*.
 
-- **Live site:** [[GitHub Pages link]]
+- **Live site:** https://mensar10.github.io/borrowed-power/
 - **Demo video:** [[link]]
-- **Team:** [[names]]
+- **Team:** İstikbalin Cezerileri (Istanbul)
 
 ## The idea in one sentence
 
@@ -54,8 +54,8 @@ No install, no build step. Open `index.html` in a modern browser, or visit the l
 
 ## Team
 
-- [[Name]] — [[role]] — [[sections of the code]]
-- [[Name]] — [[role]] — [[sections of the code]]
+**İstikbalin Cezerileri**, Istanbul
+
 - [[Name]] — [[role]] — [[sections of the code]]
 
 ## Sources
