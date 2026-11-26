@@ -147,6 +147,7 @@ html{scroll-behavior:auto;scroll-padding-top:65px}body{--volt:#9ce6d1;--copper:#
 #caption{position:absolute;bottom:27%;left:5vw;right:4vw;pointer-events:none}#caption small,.rail,#hint,.eye{font:600 11px/1.5 Archivo,Arial,sans-serif;letter-spacing:.15em;text-transform:uppercase}#byline{display:flex;align-items:center;gap:10px}#byline:before{content:'';width:28px;height:2px;background:#ffe091}#title{font:normal clamp(50px,7.7vw,128px)/.98 Georgia,serif;letter-spacing:-.058em;margin:15px 0 12px;text-shadow:0 2px 25px #0b202840}#title em{font-weight:400;color:#ffdf97}#sub{font-size:clamp(14px,1.2vw,20px);max-width:47ch;line-height:1.5;text-shadow:0 1px 5px #15252a}
 #lower{position:absolute;bottom:4.2%;left:5vw;right:5vw}.rail{display:flex;align-items:center;gap:13px}.rail b{color:#ffdf97}.line{width:25px;height:1px;background:#ffffff88}#ticks{display:flex;gap:5px;padding:5px 0}.tick{flex:1;height:21px;position:relative;padding:0}.tick:before{content:'';position:absolute;inset:10px 0 auto;height:2px;background:#ffffff55}.tick.done:before{background:#ffdc8c}.bottomrow{display:flex;justify-content:space-between;align-items:center}.bottomrow>div{display:flex;gap:7px}.bottomrow button{border:1px solid #ffffff70!important;border-radius:50%;width:35px;height:35px;font-size:18px!important}.bottomrow button:disabled{opacity:.35}#hint{text-transform:none;letter-spacing:.04em;font-size:12px;font-weight:400}.band{background:#101c20}.band:nth-of-type(3){background:#0a1418}.eye{color:#ffd58c}.band h2{font:normal clamp(36px,4.6vw,74px)/1.04 Georgia,serif;letter-spacing:-.04em;margin-bottom:15px}.scene3{overflow:hidden}.panel,.circ{border-radius:12px}#spatial{display:block;width:100%;height:clamp(220px,33vw,370px);background:radial-gradient(ellipse at center,#15353a,#0c191e 70%);border-radius:8px}#csvg{border-top:1px solid #ffffff22}details>summary{cursor:pointer;padding:14px;font-weight:bold}footer a{color:#c5dbd5}.band .note{margin-top:16px}
 @media(max-width:650px){#mast{gap:12px;padding:15px 17px}.links{gap:12px;font-size:11px}.brand{font-size:17px;gap:6px}#mast #full{display:none}#look{top:13%}#caption{bottom:25%}#title{font-size:clamp(49px,12vw,75px)}#sub{max-width:31ch}#lower{bottom:4%}.rail{font-size:10px}.stack{max-width:59vw}#csvg{min-width:750px}.diagram{overflow:auto}.circ svg{touch-action:pan-x pan-y}.scene3{height:350px}}
+@media(max-width:650px){.brand{font-size:15px;white-space:nowrap}.links a{white-space:nowrap}}@media(max-width:430px){.links a[href="#trip"]{display:none}.links{gap:9px}}
 @media(max-height:520px){#caption{bottom:24%}#title{font-size:44px;margin:3px 0}#look{top:22%}#lower{bottom:2%}.rail{display:none}}
 .shot{overflow:hidden}.shot img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;pointer-events:none}.shot .actor{will-change:transform}
 
@@ -192,10 +193,33 @@ html{scroll-behavior:auto;scroll-padding-top:65px}body{--volt:#9ce6d1;--copper:#
 .introCopy p{color:#d3dfdc;font-size:clamp(16px,1.3vw,19px);max-width:40ch}
 .introCopy .introHow{font-size:14px;color:#a9bcb8;margin:14px 0 22px}
 .introStage{position:relative;border-radius:20px;touch-action:pan-y;cursor:crosshair;user-select:none;-webkit-user-select:none}
-.introStage svg{width:100%;height:auto;display:block;max-height:66svh;overflow:visible}
+.introStage svg{width:100%;height:auto;display:block;max-height:46svh;overflow:visible}
+.introSteps{list-style:none;counter-reset:st;padding:0;margin:16px 0 8px;display:grid;gap:7px;font-size:clamp(15px,1.2vw,18px)}
+.introSteps li{counter-increment:st;display:flex;gap:10px;align-items:baseline;color:#e6f0ed;transition:color .3s}
+.introSteps li:before{content:counter(st);flex:none;width:24px;height:24px;border-radius:50%;border:1.5px solid #ffdf97;color:#ffdf97;font:700 13px/21px Archivo,Arial,sans-serif;text-align:center}
+.introSteps li.done:before{content:'✓';background:#ffdf97;color:#13221f}
+.introBtns{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.answerBox{background:#0b1418d9;border:1px solid #2f5551;border-radius:14px;padding:10px 12px;margin-top:6px}
+.answerBox svg{width:100%;height:auto;display:block}
+.ansRow{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin-top:8px}
+#askCard{font-size:14px;min-height:38px;padding:0 14px}
+#askCard:disabled{opacity:1;background:transparent;color:#adbbb9;border-color:#45605f}
+#ansText{font-size:14px;color:#ffe3b8;font-variant-numeric:tabular-nums}
+#ansText b{font:700 15px ui-monospace,Menlo,Consolas,monospace;letter-spacing:.06em;color:#f7ca83}
+#ansText small{color:#a9bcb8;font-size:12px;margin-left:4px}
+.takeMeter{display:grid;grid-template-columns:auto minmax(60px,1fr);gap:10px;align-items:center;font-size:12.5px;color:#bdcdca;margin-top:8px}
+.takeMeter .track{margin:0;height:8px}
+#takeaway{font-size:14.5px;color:#e6f0ed;margin-top:8px;border-left:3px solid #f7ca83;padding-left:10px}
+.skipLink{margin-left:auto;color:#ffdf97;text-decoration:none;border-bottom:1px solid #ffdf9766}
+.skipLink:hover{border-bottom-color:#ffdf97}
 #introStat{text-align:center;font-size:14px;color:#cfe6e1;min-height:2.9em;margin:4px auto 0;max-width:46ch}
 #introStat b{color:#ffd28e}
-@media(max-width:760px){.introIn{grid-template-columns:1fr;padding:76px 18px 24px;gap:4px}.introCopy h1{margin:4px 0 10px}.introCopy .eye{display:none}.introCopy p{font-size:15.5px}.introCopy .introHow{margin:8px 0 12px;font-size:13px}.introStage svg{max-height:40svh}#introStat{font-size:13px}}
+@media(max-width:760px){.introIn{grid-template-columns:1fr;padding:76px 18px 24px;gap:4px}.introCopy h1{margin:4px 0 10px}.introCopy .eye{display:none}.introCopy p{font-size:15.5px}.introCopy .introHow{margin:8px 0 12px;font-size:13px}.introStage svg{max-height:40svh}#introStat{font-size:13px}
+ .introIn{display:flex;flex-direction:column;align-items:stretch;padding:62px 16px 10px;gap:4px}.introCopy,.introRight{display:contents}
+ .introCopy h1{order:1;font-size:36px;margin:0}.introSteps{order:2;font-size:13.5px;gap:4px;margin:4px 0}.introSteps li:before{width:20px;height:20px;font-size:11px;line-height:17px}
+ .introLede,.introCopy .introHow{display:none}.introStage{order:3}.introStage svg{max-height:200px}.answerBox{order:4;padding:6px 10px;margin:0}
+ #introStat{order:5;font-size:12px;min-height:0;margin:2px auto}.introBtns{order:6;margin-top:2px;gap:6px}.introBtns .btn{font-size:13.5px;min-height:38px;padding:0 14px}
+ #askCard{min-height:34px;font-size:13px}.ansRow{margin-top:4px}.takeMeter{margin-top:4px}#takeaway{font-size:12.5px;margin-top:4px}}
 
 /* #ic: a short "why it matters" line instead of a second picture */
 .why{margin-top:14px;padding:12px 14px;border-left:3px solid var(--copper);background:#0f171d;border-radius:0 10px 10px 0;color:#dfe8e5;font-size:15px}
@@ -312,12 +336,19 @@ html{scroll-behavior:auto;scroll-padding-top:65px}body{--volt:#9ce6d1;--copper:#
   <div class="introCopy">
    <small class="eye">Unveiling Technology · Global Virtual Hackathon 2026</small>
    <h1>This card has <em>no battery.</em></h1>
-   <p>Yet it opens ferry gates, pays for tea and unlocks doors for millions of people in Istanbul every day. So where does its power come from?</p>
-   <p class="introHow">Try it: your pointer is the card reader. Move it toward the card. On a phone, tap or drag; with a keyboard, focus the picture and use the arrow keys.</p>
-   <a class="btn solid" href="#trip" id="startDay">Start the day in Istanbul ↓</a>
+   <p class="introLede">Yet it opens ferry gates, pays for tea and unlocks doors for millions of people in Istanbul every day. So where does its power come from?</p>
+   <ol class="introSteps" id="introSteps"><li>Move the reader to the card.</li><li>Watch the chip wake up.</li><li>Press 'Ask the card' and watch the reader's signal dip with each 1.</li></ol>
+   <p class="introHow">Your pointer is the reader. On a phone, tap or drag; with a keyboard, focus the picture and use the arrow keys.</p>
+   <div class="introBtns"><a class="btn solid" href="#trip" id="startDay">Start the day in Istanbul ↓</a><a class="btn skipLab" href="#labTitle" id="skipIntro">Skip the story: try the lab →</a></div>
   </div>
-  <div>
+  <div class="introRight">
    <div class="introStage" id="introStage" tabindex="0" role="application" aria-label="Interactive card and reader. Arrow keys move the reader."><svg id="introSvg" viewBox="0 0 600 460" aria-hidden="true"></svg></div>
+   <div class="answerBox">
+    <svg viewBox="0 0 520 74" role="img" aria-label="The reader coil signal, computed live; it dips when the card answers"><rect width="520" height="74" rx="6" fill="#09191d"/><path d="M0 37H520" stroke="#2c4546" stroke-dasharray="3 5"/><text x="10" y="13" fill="#9ce6d1" font-family="Archivo, Arial, sans-serif" font-size="12">Reader coil signal (slowed down)</text><path id="introWave" fill="none" stroke="#a5e8d1" stroke-width="2" stroke-linejoin="round"/><line id="introHead" y1="16" y2="74" stroke="#f7ca83" stroke-width="1.5" opacity="0"/></svg>
+    <div class="ansRow"><button class="btn solid" type="button" id="askCard" disabled>Move closer: the chip is asleep</button><span id="ansText" aria-live="polite"></span></div>
+    <div class="takeMeter"><span>Power the card takes <i>(illustrative)</i></span><div class="track"><i id="takeFill"></i></div></div>
+    <p id="takeaway" hidden>The card has no transmitter of its own. It answers by taking a little more, then a little less, of the reader's power, and the reader feels those dips.</p>
+   </div>
    <p id="introStat" aria-live="polite"></p>
   </div>
  </div>
@@ -325,7 +356,7 @@ html{scroll-behavior:auto;scroll-padding-top:65px}body{--volt:#9ce6d1;--copper:#
 <section id="trip" aria-label="A morning in Istanbul"><div id="screen">
 <div id="photos"></div><div class="shade"></div>
 <div id="caption"><small id="byline"></small><h2 id="title"></h2><p id="sub"></p></div>
-<div id="lower"><div class="rail"><b id="clock"></b><span class="line"></span><span id="loc">Taps today<b id="tapN">0</b></span></div><div id="ticks"></div><div class="bottomrow"><span id="hint"></span><div><button id="prev" aria-label="Previous scene">←</button><button id="next" aria-label="Next scene">→</button></div></div></div>
+<div id="lower"><div class="rail"><b id="clock"></b><span class="line"></span><span id="loc">Taps today<b id="tapN">0</b></span><a class="skipLink skipLab" href="#labTitle">Skip to the lab ↓</a></div><div id="ticks"></div><div class="bottomrow"><span id="hint"></span><div><button id="prev" aria-label="Previous scene">←</button><button id="next" aria-label="Next scene">→</button></div></div></div>
 <div id="dawn"></div>
 </div></section>
 <section class="band" id="ic">
@@ -356,7 +387,7 @@ html{scroll-behavior:auto;scroll-padding-top:65px}body{--volt:#9ce6d1;--copper:#
 <section class="band" id="devre">
   <div class="wrap">
     <span class="eye">Where the energy comes from</span>
-    <h2>Power through the air, from the reader.</h2>
+    <h2>Part 1: The reader powers the chip</h2>
     <p class="lede">The card has no battery. Move it toward the reader's coil, then step through what happens inside it.</p>
     <div class="circ">
       <canvas id="spatial" aria-label="Side view: the reader coil below, the card above it, and closed magnetic field loops passing through both coils"></canvas>
@@ -378,7 +409,7 @@ html{scroll-behavior:auto;scroll-padding-top:65px}body{--volt:#9ce6d1;--copper:#
  <div class="machineBar"><button id="unpack" type="button" aria-expanded="false">Take it apart</button><div><button id="turnLeft" type="button" aria-label="Rotate left">↶</button><button id="turnRight" type="button" aria-label="Rotate right">↷</button></div></div></div>
  <div class="panel"><small class="eye" id="modelOrder">Assembled</small><h3 id="modelTitle">Handheld POS terminal</h3><p class="pdesc" id="modelText"></p><div id="machineTabs" aria-label="POS parts"></div><div class="row"><button class="btn" id="partBack">Back</button><button class="btn solid" id="partAdvance">Open the device</button></div></div>
 </div>
-<h3 class="circuitTitle" id="labTitle">Reader lab</h3><p class="lede">Switch the reader on, move the card, and click any block to probe its signal. The scope under the diagram always shows the block you picked.</p>
+<h3 class="circuitTitle" id="labTitle">Part 2: The card answers by changing how much power it takes</h3><p class="lede">Switch the reader on, move the card, and click any block to probe its signal. The scope under the diagram always shows the block you picked.</p>
 <div class="lab2">
  <div class="labMain" id="labMain">
   <div class="labBar">
@@ -706,9 +737,12 @@ function labState(){const power=lab.on?powerAt(lab.gap)*(lab.tuned?1:.45):0;retu
 // waveAt: the signal level (-1…1) at a block, at position x (0…1) across the scope screen
 function waveAt(block,x,st){
  if(!st.on)return 0;                                           // reader off: everything is flat
- const time=x+st.clock*.12,bit=st.bits[Math.floor(time*8)%8];  // the card's one-time code, 8 bits at a time
+ const time=x+st.clock*.12;
+ // the card's answer comes from the state: 8 bits that scroll by (lab), or stay in place (intro: st.fixed)
+ const bit=st.bits?st.bits[Math.floor((st.fixed?x:time)*8)%8]:0;
  const drive=st.tuned?1:.45;                                   // a mistuned antenna gets much less of the wave
- const dip=st.awake&&bit?.72:1;                                // the card's answer = small dips in strength
+ const depth=st.awake?.15+.45*st.power:0;                      // closer card = it takes more power = deeper dips
+ const dip=1-depth*bit;                                        // the card's answer = small dips in strength
  const carrier=Math.sin(time*2*Math.PI*12);                    // 12 slow cycles stand in for 13.56 million per second
  if(block===0)return .8;                                       // power supply: flat, steady voltage
  if(block===1)return .8*carrier;                               // wave maker
@@ -804,6 +838,11 @@ $('#fieldPower').onclick=()=>{lab.on=!lab.on;updateLab()};
 $('#readerGap').oninput=e=>{lab.gap=Number(e.target.value);updateLab()};
 $('#tuneOk').onclick=()=>{lab.tuned=true;updateLab()};$('#tuneBad').onclick=()=>{lab.tuned=false;updateLab()};
 $('#powerMark').style.left=pct(WAKE);
+// "Skip the story": jump straight to the lab with the card already close (2 cm), so the chip is awake
+document.querySelectorAll('.skipLab').forEach(a=>a.onclick=e=>{
+ e.preventDefault();lab.on=true;lab.tuned=true;lab.gap=2;$('#readerGap').value=2;updateLab();
+ $('#labTitle').scrollIntoView({block:'start'});
+});
 narrowQuery.addEventListener('change',renderBoard);
 describePiece(-1);paintModel();renderBoard();
 let scopeWait=0;
@@ -916,8 +955,8 @@ function introStep(dt,now){
  introIn.style.opacity=(1-fadeOut).toFixed(3);introIn.style.transform=reduce?'none':`translateY(${(-scrollY*.25).toFixed(1)}px)`;
  if(!onScreen(intro))return;
  if(!reduce&&now-lastInput>3500){                     // nobody is playing: show a short demo
-  if(!demoT0)demoT0=now;const s=((now-demoT0)/1000)%7.5;
-  const k=s<2.6?ease(s/2.6):s<4.4?1:s<7?1-ease((s-4.4)/2.6):0;
+  if(!demoT0)demoT0=now;const s=((now-demoT0)/1000)%9.5;
+  const k=s<2.6?ease(s/2.6):s<6.6?1:s<9.2?1-ease((s-6.6)/2.6):0;
   reader.tx=110+(330-110)*k;reader.ty=100+(240-100)*k;
  }else demoT0=0;
  const f=reduce?1:1-Math.exp(-dt*7);reader.x+=(reader.tx-reader.x)*f;reader.y+=(reader.ty-reader.y)*f;
@@ -930,8 +969,39 @@ function introStep(dt,now){
  $('#iCoil').setAttribute('opacity',clamp(.08+p*1.8).toFixed(2));
  $('#iCurrent').setAttribute('opacity',awake?1:0);if(!reduce)$('#iCurrent').setAttribute('stroke-dashoffset',(-now/12).toFixed(0));
  $('#iChipGlow').setAttribute('opacity',awake?(.75+.25*Math.sin(now/200)).toFixed(2):0);
+ answerStep(dt,now,d,p,awake);
  const text=awake?'<b>Chip awake.</b> It is running on energy from your reader'+(d<.05?', which is touching it.':', '+cm(d)+' away.'):'Reader '+cm(d)+' away: <b>'+pct(p)+'</b> of the energy reaches the chip (illustrative). It needs '+pct(WAKE)+' to wake up.';
  if(text!==statShown){statShown=text;$('#introStat').innerHTML=text}
+}
+
+/* the card's answer, in the intro: same waveAt as the Reader lab, computed from your distance */
+let ans=null,autoDone=false,wakeT=0,answeredOnce=false,introClock=0,waveWait=0;
+const bitsOf=n=>Array.from({length:8},(_,i)=>(n>>(7-i))&1);
+function newAnswer(auto){
+ let n;do{n=Math.floor(Math.random()*256)}while(bitsOf(n).filter(b=>b).length<3);   // fresh 8 bits on every press
+ ans={bits:bitsOf(n),head:reduce?1:0,auto};
+ const b=ans.bits.join('');$('#ansText').innerHTML="Card's answer: <b>"+b.slice(0,4)+' '+b.slice(4)+'</b>'+(auto?'<small>(automatic first answer)</small>':'');
+}
+$('#askCard').onclick=()=>{newAnswer(false);lastInput=performance.now()};
+function answerStep(dt,now,d,p,awake){
+ // the button only works while the chip is awake
+ const btn=$('#askCard');if(btn.disabled===awake){btn.disabled=!awake;btn.textContent=awake?'Ask the card':'Move closer: the chip is asleep'}
+ if(!awake){if(ans&&ans.auto&&ans.head<1)autoDone=false;ans=null;wakeT=0}   // an interrupted automatic answer is tried again
+ else{if(!wakeT)wakeT=now;if(!autoDone&&now-wakeT>1000){autoDone=true;newAnswer(true)}}
+ if(ans&&ans.head<1){ans.head=Math.min(1,ans.head+dt/2.4);if(ans.head>=1&&!answeredOnce){answeredOnce=true;$('#takeaway').hidden=false}}
+ // the steps tick off as you do them
+ const steps=document.querySelectorAll('#introSteps li');steps[0].classList.toggle('done',p>.05);steps[1].classList.toggle('done',awake);steps[2].classList.toggle('done',answeredOnce);
+ // live signal: left of the sweep line the card's bits are already in; right of it, no answer yet
+ introClock+=reduce?0:dt;waveWait+=dt;if(waveWait<1/30)return;waveWait=0;
+ const base={on:true,tuned:true,power:p,awake,clock:introClock,fixed:true,bits:null};
+ const answering=ans?{...base,bits:ans.bits}:base,head=ans?ans.head:0;
+ let path='';for(let x=0;x<=520;x+=2){const u=x/520;path+=(x?'L':'M')+x+' '+(46-23*waveAt(3,u,u<=head?answering:base)).toFixed(1)}
+ $('#introWave').setAttribute('d',path);
+ const h=$('#introHead');h.setAttribute('opacity',ans&&ans.head<1?1:0);h.setAttribute('x1',head*520);h.setAttribute('x2',head*520);
+ // power the card takes: more while it switches its load on (a 1), always limited by how much reaches it
+ const bitNow=ans&&ans.head<1?ans.bits[Math.min(7,Math.floor(ans.head*8))]:0;
+ $('#takeFill').style.width=pct(p*(.6+.4*bitNow));
+ $('#iCoil').setAttribute('stroke',bitNow?'#ffe7b0':'#ffb35c');    // the card's coil brightens while it takes more
 }
 
 /* ================= outro ================= */
